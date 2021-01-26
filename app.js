@@ -25,7 +25,7 @@ function formSubmitHandler(event) {
          movieSearch(searchFormText);
        
 
-        // create new <li> tag
+        // create new <button> tag
         var savedSearchButton = document.createElement("button");
         // give <div> a class
         savedSearchButton.classList = "savedSearch"
@@ -113,32 +113,30 @@ function displayMovieContent (results){
 
     movieInfoContainer.appendChild(moviePosterDiv);
 
-    // getMovieArt(movieId)
+    //
 }
 
-// function getMovieArt(movieIdNumber){
-//  console.log("success");
-// let baseURL = 'https://api.themoviedb.org/3/movie/';
-// // let apiKey = "3e7d82fcb86e4e69fdfe0c810341a3fd";
-// var movie = ''.concat(baseURL, movieIdNumber , '/images?api_key=3e7d82fcb86e4e69fdfe0c810341a3fd&language=en-US');
-// // console.log(movie)
-// displayMovieArt(movie)
-// }
+function loadSearchData(){
+    //if no saved data in localStorage, create new searchArray
+    if(localStorage.getItem("Saved Search") === null){
+        var searchArray = [];   
+    }else{
+        searchArray = JSON.parse(localStorage.getItem('Saved Search'))
+    }
 
-// function displayMovieArt(movieArt){
-
+    searchArray.forEach(function(stored){
+          // create new <button> tag
+          var savedSearchButton = document.createElement("button");
+          // give <div> a class
+          savedSearchButton.classList = "savedSearch"
+          // add text to the element
+          savedSearchButton.textContent = stored;
+          
+          searchHistory.appendChild(savedSearchButton)
+        
+    })
     
-//     var moviePosterDiv = document.createElement('div');
-
-//     var moviePoster = document.createElement('img')     
-//     moviePoster.src = movieArt
-//     moviePosterDiv.appendChild(moviePoster);
-
-//     movieInfoContainer.appendChild(moviePosterDiv);
-// }
-
-
-searchButton.addEventListener('click', formSubmitHandler)
+}
 
 
 //variable for sending searchHistory to savedSearches function
@@ -150,29 +148,15 @@ $('.searchHistory').on('click', 'button', function () {
     savedSearches(savedSearchButton);
     console.log(savedSearchButton);
     
-
-
 });
 
 function savedSearches(savedButton){
     // console.log(savedButton)
     // console.log('button clicked')
     movieSearch(savedButton);
-
-
-        
     
-
-        // this clears the movieSearchForm
-        // movieSearchForm.value = "";
-    
-
- 
 }
 
-('https://api.themoviedb.org/3/movie/475557/images?api_key=3e7d82fcb86e4e69fdfe0c810341a3fd&language=en-US')
+searchButton.addEventListener('click', formSubmitHandler)
 
-    
-
-
-
+loadSearchData()
