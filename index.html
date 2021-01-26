@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <title>Movie Database Search</title>
+</head>
+<body>
+    <div>
+    <h1 class="header">Movie Database Search</h1>
+    </div>
+    <br>
+    <hr>
+    <!-- search form input -->
+    <div class="searchForm">
+        <h3>Enter Movie Title</h3>
+        <input id="movieSearchForm" placeholder="Search">
+        <button id="searchButton" type="submit"><i class="fas fa-search"></i></button>
+    </div>
+    <!-- saved searches container -->
+    <div class="savedSearchesContainer">
+
+    </div>
+    <!-- movie details container -->
+    <div class="container">
+        <div>
+        <h3>Movie Title: <span id="movieTitle"></span></h3>
+        </div>  
+        <div>
+        <h3>Release Date: <span id="movieDate"></span></h3>
+        </div>
+        <div>
+        <h3>Movie Synopsis: <span id="movieSynopsis"></span></h3>
+        </div>
+        <div>
+        <h3>Movie Poster <span id="moviePoster"></span></h3>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+</body>
+</html>
