@@ -6,6 +6,7 @@ let movieSearchForm = document.querySelector("#movieSearchForm")
 let searchHistory = document.querySelector(".searchHistory")
 let movieDate = document.querySelector("#movieDate")
 let movieInfoContainer = document.querySelector("#movieInfoContainer")
+let clearSearches = document.querySelector("#clearSearches")
 
 var searchArray = [];
 
@@ -137,6 +138,9 @@ function loadSearchData(){
     })
     
 }
+function clearLocalStorage(){   //need to delete the buttons
+    localStorage.clear()
+}
 
 
 //variable for sending searchHistory to savedSearches function
@@ -146,7 +150,7 @@ $('.searchHistory').on('click', 'button', function () {
     // currentCityName.innerHTML = "";
     // weatherIcon.innerHTML = "",
     savedSearches(savedSearchButton);
-    console.log(savedSearchButton);
+    // console.log(savedSearchButton);
     
 });
 
@@ -158,5 +162,6 @@ function savedSearches(savedButton){
 }
 
 searchButton.addEventListener('click', formSubmitHandler)
+clearSearches.addEventListener('click', clearLocalStorage)
 
 loadSearchData()
