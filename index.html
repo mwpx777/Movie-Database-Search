@@ -10,11 +10,21 @@
     <title>Movie Database Search</title>
 </head>
 <body>
+      <!-- modal popup window -->
+      <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Please enter a valid search response </div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <!-- grey overlay -->
+    <div id="overlay"></div>
     <div>
     <h1 class="header">Movie Database Search</h1>
     </div>
     <br>
     <hr>
+    
     <!-- search form input -->
     <div class="searchForm">
         <h3>Enter Movie Title</h3>
@@ -30,6 +40,8 @@
     <hr>
     <!-- movie details container -->
     <div id="movieInfoContainer">
+
+  
    
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>

@@ -7,6 +7,9 @@ let searchHistory = document.querySelector(".searchHistory")
 let movieDate = document.querySelector("#movieDate")
 let movieInfoContainer = document.querySelector("#movieInfoContainer")
 let clearSearches = document.querySelector("#clearSearches")
+let dataCloseButton= document.querySelector('[data-close-button]')
+let modal = document.querySelector("#modal")
+let overlay = document.querySelector("#overlay")
 
 var searchArray = [];
 
@@ -24,6 +27,7 @@ function formSubmitHandler(event) {
         //this will pass searchForm.value into movieSearch function as argument
         //  movieSearch(searchFormText);
          movieSearch(searchFormText);
+        
        
 
         // create new <button> tag
@@ -43,10 +47,33 @@ function formSubmitHandler(event) {
         movieSearchForm.value = "";
 
 
-    } else {                            //change this to a modal popup window
-        alert("Please enter a movie");
+    } else {                          
+        // alert("Please enter a movie");
+        movieSearchForm.value = "";
+        openModal();
     }
 };
+
+function openModal(){
+    console.log('openModal clicked')
+     // document.getElementById("modal").style.zIndex="10";
+    
+    modal.classList.add('active');
+    overlay.classList.add('active');
+
+   
+}
+
+function closeModal(){  
+    
+    console.log('closeModal clicked')
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+  
+
+  
+
+}
 
 function movieSearch(keyword){
 // console.log("success");
@@ -163,5 +190,6 @@ function savedSearches(savedButton){
 
 searchButton.addEventListener('click', formSubmitHandler)
 clearSearches.addEventListener('click', clearLocalStorage)
+dataCloseButton.addEventListener('click', closeModal)
 
 loadSearchData()
