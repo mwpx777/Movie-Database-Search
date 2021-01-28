@@ -12,7 +12,10 @@
         </style>
     <title>Movie Database Search</title>
 </head>
-<body>
+<body> 
+    <!-- ??? Was this overlay just to help you display when writing the logic. I didnt want to get rid incase you needed -->
+    <!-- grey overlay
+    <div id="overlay"></div> -->
     <div class="wrapper">
     <!-- header with title of website -->
     
@@ -21,9 +24,8 @@
     
      <!-- SIDEBAR START -->
      <aside class="sidebar">
-         <!-- search form input -->
+     <!-- search form input -->
        <div class="searchForm">
-           <!--Asks for movie title  -->
         <h3>Enter Movie Title</h3>
         <input id="movieSearchForm" placeholder="Search">
         <!-- search button -->
@@ -35,19 +37,27 @@
         <button class="delete" id="clearSearches">Clear Searches</button>     
     </div>
     </aside>
-
+   
     <!-- SIDEBAR END -->
-
+ <!-- modal popup window -->
+      <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Please enter a valid search response </div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
     <!-- MOVIE CONTAINER START-->
     <div id="movieInfoContainer" class="container">
         
-        <!-- card for each generated. I will build this out physically then leave the card classes to be assigned during createElement  -->
-        <div id="movie-card" class="movie-card">
+          <!-- <div id="movie-card" class="movie-card">
             <!-- movie card title -->
             <span id="card-title" class="card-title">Godzilla</span>
             <!-- movie card year -->
             <span id="card-year" class="card-year">'86</span>
-            <!-- movie card img -->
+            <!-- movie trailer -->
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/awLQCpISTlo">
+            </iframe>
+            <!-- movie card img -->            
             <img id="card-img" class="card-img" src="https://via.placeholder.com/150x200?text=Movie+Poster" alt="">
             <!-- movie summary -->
             <p id="card-summary">Big lizard attacks a city. Never see him really eat but he is huge. Legs have yet to give out when he walks on land</p>
@@ -62,12 +72,11 @@
             <div id="directors" class="directors">
                 <span>Woody Allen</span>
             </div>
-
-        </div>
-      </div>
+            </div>
+          
     </div>
     <!-- MOVIE CONTAINER END -->
-    <footer class="footer">Created by Adam, Luke & Mark</footer>
+    <footer class="footer">Created by Adam, Luke & Mark</footer></div>
 </div>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
