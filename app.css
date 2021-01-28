@@ -89,3 +89,7 @@
     pointer-events:all;
     opacity:1;
 }
+
+.moviePosterImg{
+    width: 500px;
+}
