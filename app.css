@@ -11,23 +11,31 @@
     --fontcolor: black;
     --history-title:"Poppins",sans-serif ;
     --history-list:"Poppins",sans-serif ;
-    --movie-summary:"Poppins",sans-serif ;
-    --movie-actors:"Poppins",sans-serif ;
+    --movie-title:"Poppins",sans-serif ;
     --movie-date:"Poppins",sans-serif ;
+    --movie-time:"Poppins",sans-serif ;
+    --movie-overview:Arial, Helvetica, sans-serif;
+    --border-color: #f6c90E;
+   
+
     
 }
+/* BASE START */
 *, *:before, *:after {
     box-sizing: border-box;
   }
-.body{
-    background: var(--background);
+body{
+    background-color: lightblue;
 }
 .wrapper {
     max-width: 1260px;
     margin: 0 20px;
     display: grid;
     grid-gap: 10px;
+  
 }
+/* BASE END */
+/* HEADER & FOOTER START */
 .header{
     text-align: center;
     font-size:5rem;
@@ -35,19 +43,30 @@
     background: var(--titles);
     font-family: var(--page-title);
 }
-
+.header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+    border: 2px solid black;
+    
+}
+.footer{
+    background:var(--titles);   
+    text-align: center;
+    font-family: var(--page-title);
+}
+/* HEADER &  FOOTER END */
+/* SIDEBAR START */
 .sidebar  {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid blue;
-    border-radius: 5px;
     float: left;
     width:200px;
     background: var(--sidebar);
     color: var(--titles);
     font-family: var(--history-title);
+    box-shadow: 2px 2px rgba(255, 255, 0, 0.664);
   }
 .savedSearch {
     display: flex;
@@ -55,7 +74,7 @@
     flex-direction: column;
     align-items: center;
     background: var(--titles);
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px 10px ;
     font-family: var(--history-list);
     width: 100%;
@@ -65,17 +84,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.header, .footer {
-    grid-column: 1 / -1;
-    /* needed for the floated layout */
-    clear: both;
-    border: 3px solid black;
-   
+    margin: 20px 0px;
+    padding: 0px;
 }
 .searchForm{
-    /* display:flex;
-    justify-content: center; */
     font-size:1rem;
     margin:0;
     padding:0;
@@ -85,75 +97,82 @@
     padding:.5 rem;
     color:white;
     background-color:blue;
-    border-radius: 0px 3px 3px 0px;
+    border-radius: 0px 10px 10px 0px;
 }
-
-.container{
-    border: 1px solid blue;
-    border-radius: 5px;
-    /* justify-items: center; */
-    
-}
-.movieInfoContainer{
-    padding: 0;
-    margin:0;
-
-}
-.movieInfoContainer {
+.deletebtn{
+    margin-top: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    border: 1px solid blue;
-    border-radius: 5px;
+    justify-content: space-around;
 }
+.delete {
+    display: flex;
+    justify-content: end;
+    justify-content: space-between;   
+}
+/* SIDE BAR END */
+/* MOVIE INFO START */
+/* container to hold the card */
+.container {
+    
+    height: 80vh;
+}
+/* the card that supplies the grid */
 .movie-card{
+   
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50%  50%;
+    grid-template-rows: 5% 5% 5% 5% 20% 20% 20% 20%;
+}
+.movie-title {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    grid-column: 1;
+    font-family: var(--movie-title);
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-date {
+    text-align: left;
+    grid-row: 3;
+    font-family: var(--movie-date);
+    
+}
+.movie-date span{
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-runtime {
+    text-align: left;
+    grid-row: 4;
+    font-family: var(--movie-time);
+}
+.movie-runtime span {
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-overview{
     display: flex;
-    
-}
-.card-title {
     justify-content: center;
     text-align: center;
-    align-items: center;
-
+    grid-row: 5 / span 6;
+    text-align: center;
+    font-family: var(--movie-overview);
+    padding: 10px 10px 0 0;
 }
-.card-year {
-    justify-content: center;
-
-}
-.card-img {
-    height: 300px;
-    width: 150px;
+.movie-img {
+    display: flex;
     justify-content: center;
     align-items: center;
-
+    align-self: center;
+    grid-column: 2 / span 3;
+    grid-row-start: 5;
+    grid-row-end: 10;
 }
-.card-summary {
-    border: 1px solid blue;
-    border-radius: 5px;
-    text-align: center;
-
-}
-.actors {
-    border: 1px solid blue;
-    border-radius: 5px;
-    text-align: center;
-
-}
-.directors{
-    border: 1px solid blue;
-    border-radius: 5px;
-    text-align: center;
-
-}
-.footer{
-    background:var(--titles);
-    
-    text-align: center;
-    font-family: var(--page-title);
-}
-
+/* POSTER IMAGE SIZE */
+ .img-size{
+     padding: 5px;
+    background: white;
+    width: 40vh;
+} 
 /* MODAL START */
 .modal{
     position:fixed;
@@ -170,7 +189,6 @@
     max-width: 80%;
 
 }
-
 .modal.active{
     /* scale(1) will make modal visible */
     transform:translate(-50%, -50%) scale(1); 
@@ -213,16 +231,6 @@
     pointer-events:all;
     opacity:1;
 }
-/* POSTER IMAGE SIZE */
-.moviePosterImg{
-    width: 500px;
-}
-
-
-
-
-
-
 
 
 
