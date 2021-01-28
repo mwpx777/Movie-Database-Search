@@ -193,3 +193,4 @@ clearSearches.addEventListener('click', clearLocalStorage)
 dataCloseButton.addEventListener('click', closeModal)
 
 loadSearchData()
+

@@ -37,7 +37,7 @@
     left:50%;
     /* scale(0) will turn modal invisible */
     transform:translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
+    transition: 500ms ease-in-out;
     border: 5px solid black;
     border-radius: 20px;
     z-index:10;
@@ -82,7 +82,7 @@
     background-color:rgba(0, 0, 0, .75);
     /* this allows buttons to be able to be clicked through the overlay */
     pointer-events: none;
-    transition: 200ms ease-in-out;
+    transition: 500ms ease-in-out;
 }
 
 #overlay.active{
