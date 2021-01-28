@@ -172,10 +172,12 @@ function displayMovieContent(results) {
 
     var movieTrailerDiv = document.createElement('div');
 
-    var movieTrailerEl = document.createElement('button')
-    movieTrailerEl.textContent = "Click here for movie trailer!"
-    // movieTrailerEl.ref = movieTrailer
+    var movieTrailerEl = document.createElement('a')
+    movieTrailerEl.href = movieTrailer + '?"' + ( ' target="_blank')
+    movieTrailerEl.classList = "trailerText"
+    movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
     movieTrailerDiv.appendChild(movieTrailerEl);
+    
 
     movieInfoContainer.appendChild(movieTrailerDiv);
 
@@ -203,7 +205,7 @@ function loadSearchData() {
     })
 
 }
-function clearLocalStorage() {   //need to delete the buttons
+function clearLocalStorage() {   
     searchHistory.innerHTML="";
     localStorage.clear()
 }
