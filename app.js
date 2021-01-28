@@ -172,9 +172,10 @@ function displayMovieContent(results) {
 
     var movieTrailerDiv = document.createElement('div');
 
-    // var movieTrailerEl = document.createElement('iframe')
+    var movieTrailerEl = document.createElement('button')
+    movieTrailerEl.textContent = "Click here for movie trailer!"
     // movieTrailerEl.ref = movieTrailer
-    // movieTrailerDiv.appendChild(movieTrailerEl);
+    movieTrailerDiv.appendChild(movieTrailerEl);
 
     movieInfoContainer.appendChild(movieTrailerDiv);
 
