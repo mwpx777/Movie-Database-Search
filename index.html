@@ -7,31 +7,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;0,600;1,400&display=swap');
+        </style>
     <title>Movie Database Search</title>
 </head>
 <body>
-    <div>
-    <h1 class="header">Movie Database Search</h1>
-    </div>
-    <br>
-    <hr>
-    <!-- search form input -->
-    <div class="searchForm">
+    <div class="wrapper">
+    <!-- header with title of website -->
+    
+    <header class="header">Movie Database Search</header>
+    
+    
+     <!-- SIDEBAR START -->
+     <aside class="sidebar">
+         <!-- search form input -->
+       <div class="searchForm">
+           <!--Asks for movie title  -->
         <h3>Enter Movie Title</h3>
         <input id="movieSearchForm" placeholder="Search">
+        <!-- search button -->
         <button id="searchButton" type="submit"><i class="fas fa-search"></i></button>
+       </div>
+       <!-- search history -->
+     <h4>Search History</h4>
+      <div class="searchHistory">
+        <button class="delete" id="clearSearches">Clear Searches</button>     
     </div>
-    <hr>
-    <!-- saved searches container -->
-    <h4>Search History</h4>
-    <div class="searchHistory">
-       <button class="delete" id="clearSearches">Clear Searches</button>
-    </div>
-    <hr>
-    <!-- movie details container -->
-    <div id="movieInfoContainer">
-   
+    </aside>
 
+    <!-- SIDEBAR END -->
+
+    <!-- MOVIE CONTAINER START-->
+    <div id="movieInfoContainer" class="container">
+        
+        <!-- card for each generated. I will build this out physically then leave the card classes to be assigned during createElement  -->
+        <div id="movie-card" class="movie-card">
+            <!-- movie card title -->
+            <span id="card-title" class="card-title">Godzilla</span>
+            <!-- movie card year -->
+            <span id="card-year" class="card-year">'86</span>
+            <!-- movie card img -->
+            <img id="card-img" class="card-img" src="https://via.placeholder.com/150x200?text=Movie+Poster" alt="">
+            <!-- movie summary -->
+            <p id="card-summary">Big lizard attacks a city. Never see him really eat but he is huge. Legs have yet to give out when he walks on land</p>
+            <!-- actors area -->
+            <div id="actors" class="actors">Actors
+                <span>rich burlow</span>
+                <span>bob allen</span>
+                <span>alica winthorp</span>
+                <span>besty lee</span>
+                <span>timmy beucannon</span>
+            <!-- directors area -->
+            <div id="directors" class="directors">
+                <span>Woody Allen</span>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- MOVIE CONTAINER END -->
+    <footer class="footer">Created by Adam, Luke & Mark</footer>
+</div>
+    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
         
         <script src="app.js"></script>
