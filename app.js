@@ -189,15 +189,8 @@ function displayMovieContent(results) {
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText"
     movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
-<<<<<<< HEAD
-   
-
-    movieTrailerDiv.appendChild(movieTrailerEl);
-  
-=======
     movieTitleDiv.appendChild(movieTrailerEl);
    
->>>>>>> 424b6fbd71d6bba7446043088c4e0bd791999cb2
 
    
 
