@@ -126,17 +126,18 @@ function displayMovieContent(results) {
     var poster = results.poster
     var movieTrailer = results.trailer.link
 
-
+// creates the div to hold everything
     var movieTitleDiv = document.createElement('div');
     movieTitleDiv.classList = "movie-card";
     movieInfoContainer.appendChild(movieTitleDiv)
-
+// creates the movie title
     var movieTitle = document.createElement('span');
     movieTitle.classList = "movieDetails movie-title"
     movieTitle.textContent = "Movie Title: " + movieName
     movieTitleDiv.appendChild(movieTitle);
     // movieInfoContainer.appendChild(movieTitleDiv);
 
+// creates the movie date
     var movieDateDiv = document.createElement('div');
 
     var movieDate = document.createElement('span');
@@ -145,7 +146,7 @@ function displayMovieContent(results) {
     movieDateDiv.appendChild(movieDate)
     movieTitleDiv.appendChild(movieDateDiv);
     // movieInfoContainer.appendChild(movieDateDiv);
-
+// creat the movie run length
     var movieRunTimeDiv = document.createElement('div');
 
     var movieRunTime = document.createElement('span');
@@ -154,7 +155,7 @@ function displayMovieContent(results) {
     movieRunTimeDiv.appendChild(movieRunTime);
     movieTitleDiv.appendChild(movieRunTimeDiv);
 
-
+// create movie synopsis
     var movieSynopsisDiv = document.createElement('div');
 
     var movieSynopsis = document.createElement('span');
@@ -166,7 +167,7 @@ function displayMovieContent(results) {
 // var movieTrailerDiv = document.createElement('div');
 //     movieTitleDiv.classList="trailer";
 //     movieTitleDiv.appendChild(movieTrailerDiv);
-
+// create movie poster
     var moviePosterDiv = document.createElement('div');
 
     var moviePoster = document.createElement('img')
@@ -176,10 +177,16 @@ function displayMovieContent(results) {
     moviePosterDiv.appendChild(moviePoster);
     movieTitleDiv.appendChild(moviePosterDiv);
 
-    
-    // var movieTrailerEl = document.createElement('iframe')
-    // movieTrailerEl.ref = movieTrailer
-    // movieTrailerDiv.appendChild(movieTrailerEl);
+    // movieInfoContainer.appendChild(moviePosterDiv);
+
+    var movieTrailerDiv = document.createElement('div');
+
+    var movieTrailerEl = document.createElement('a')
+    movieTrailerEl.href = movieTrailer + '?"' + ( ' target="_blank')
+    movieTrailerEl.classList = "trailerText"
+    movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
+    movieTitleDiv.appendChild(movieTrailerEl);
+   
 
    
 
@@ -207,7 +214,7 @@ function loadSearchData() {
     })
 
 }
-function clearLocalStorage() {   //need to delete the buttons
+function clearLocalStorage() {   
     searchHistory.innerHTML="";
     localStorage.clear()
 }

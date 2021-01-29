@@ -152,13 +152,14 @@ body{
     display: flex;
     justify-content: center;
     text-align: center;
-    grid-row: 5 / span 6;
+    grid-row: 5 ;
     text-align: center;
     font-family: var(--movie-overview);
     padding: 10px 10px 0 0;
 }
-.trailer{
-    /* grid-row: 6/ span 7; */
+.trailerText{
+    grid-row: 6/ span 7;
+    grid-column: 1;
 }
 .movie-img {
     display: flex;
@@ -167,7 +168,7 @@ body{
     align-self: center;
     grid-column: 2 / span 3;
     grid-row-start: 5;
-    grid-row-end: 10;
+    grid-row-end: 9;
 }
 /* POSTER IMAGE SIZE */
  .img-size{
@@ -280,3 +281,25 @@ body{
     }
   }
 
+.moviePosterImg{
+    width: 500px;
+    margin:1rem;
+}
+
+@keyframes blinking{
+    0% {background-color: #3a4570 }
+    50% {background-color: #a1a1a1}
+    100% {background-color: #3a4570 }
+}
+
+.trailerText{
+    margin: 1rem;
+    font-size: 2rem;
+    border: 5px solid #f6c90e;
+    border-radius: 10px;
+    padding: 1rem;
+    text-decoration: none;
+    animation:blinking 2s infinite;
+    /* background: #3a4570 ; */
+    color: #f6c90e;
+}
