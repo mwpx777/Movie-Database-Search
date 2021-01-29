@@ -1,36 +1,182 @@
-*{
+/* *{
     margin:0;
     padding:0;
     font-family: 'Ubuntu', sans-serif;
-}
+} */
+:root {
+    --page-title:"Poppins",sans-serif ;
+    --titles: #f6c90E;
+    --sidebar:#3a4750 ;
+    --background: lightblue;
+    --fontcolor: black;
+    --history-title:"Poppins",sans-serif ;
+    --history-list:"Poppins",sans-serif ;
+    --movie-title:"Poppins",sans-serif ;
+    --movie-date:"Poppins",sans-serif ;
+    --movie-time:"Poppins",sans-serif ;
+    --movie-overview:Arial, Helvetica, sans-serif;
+    --border-color: #f6c90E;
+   
 
+    
+}
+/* BASE START */
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+body{
+    background-color: lightblue;
+}
+.wrapper {
+    max-width: 1260px;
+    margin: 0 20px;
+    display: grid;
+    grid-gap: 10px;
+  
+}
+/* BASE END */
+/* HEADER & FOOTER START */
 .header{
+    text-align: center;
     font-size:5rem;
     font-weight: bold;
-    display:flex;
-    justify-content: center;
+    background: var(--titles);
+    font-family: var(--page-title);
 }
-
-.searchForm{
-    display:flex;
+.header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+    border: 2px solid black;
+    
+}
+.footer{
+    background:var(--titles);   
+    text-align: center;
+    font-family: var(--page-title);
+}
+/* HEADER &  FOOTER END */
+/* SIDEBAR START */
+.sidebar  {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width:200px;
+    background: var(--sidebar);
+    color: var(--titles);
+    font-family: var(--history-title);
+    box-shadow: 2px 2px rgba(255, 255, 0, 0.664);
+  }
+.savedSearch {
+    display: flex;
     justify-content: center;
-    font-size:2rem;
-    margin:1rem 0;
-    padding:1rem;
+    flex-direction: column;
+    align-items: center;
+    background: var(--titles);
+    border-radius: 15px;
+    padding: 5px 10px ;
+    font-family: var(--history-list);
+    width: 100%;
+}
+.searchHistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    padding: 0px;
+}
+.searchForm{
+    font-size:1rem;
+    margin:0;
+    padding:0;
 }
 
 #searchButton{
-    padding:1rem;
+    padding:.5 rem;
     color:white;
     background-color:blue;
+    border-radius: 0px 10px 10px 0px;
 }
-
-.container{
+.deletebtn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.delete {
+    display: flex;
+    justify-content: end;
+    justify-content: space-between;   
+}
+/* SIDE BAR END */
+/* MOVIE INFO START */
+/* container to hold the card */
+.container {
     
-    justify-items: center;
+    height: 80vh;
+}
+/* the card that supplies the grid */
+.movie-card{ 
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50%  50%;
+    grid-template-rows: 5% 5% 5% 5% 20% 20% 20% 20%;
+}
+.movie-title {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    grid-column: 1;
+    font-family: var(--movie-title);
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-date {
+    text-align: left;
+    grid-row: 3;
+    font-family: var(--movie-date);
     
 }
-
+.movie-date span{
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-runtime {
+    text-align: left;
+    grid-row: 4;
+    font-family: var(--movie-time);
+}
+.movie-runtime span {
+    border-bottom: 2px solid var(--border-color);
+}
+.movie-overview{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    grid-row: 5 ;
+    text-align: center;
+    font-family: var(--movie-overview);
+    padding: 10px 10px 0 0;
+}
+.trailerText{
+    grid-row: 6/ span 7;
+    grid-column: 1;
+}
+.movie-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    grid-column: 2 / span 3;
+    grid-row-start: 5;
+    grid-row-end: 9;
+}
+/* POSTER IMAGE SIZE */
+ .img-size{
+     padding: 5px;
+    background: white;
+    width: 40vh;
+} 
+/* MODAL START */
 .modal{
     position:fixed;
     top:50%;
@@ -46,7 +192,6 @@
     max-width: 80%;
 
 }
-
 .modal.active{
     /* scale(1) will make modal visible */
     transform:translate(-50%, -50%) scale(1); 
@@ -61,7 +206,7 @@
    
     
 }
-
+/* Modal End */
 .close-button{
     font-size:2rem;
     cursor: pointer;
@@ -71,7 +216,7 @@
     border:none;
 
 }
-
+/* Overlay */
 #overlay{
     position:fixed;
     opacity:0;
@@ -89,6 +234,52 @@
     pointer-events:all;
     opacity:1;
 }
+
+
+
+
+@media screen and (min-width: 500px) {
+
+    /* no grid support? */
+    .sidebar {
+      float: left;
+      width: 200px;
+    }
+  
+    .content {
+      float: right;
+      width: 85.7872%;
+    }
+  
+    .wrapper {
+      margin: 0 auto;
+      grid-template-columns: 1fr 3fr;
+    }
+    
+    .header, .footer {
+      grid-column: 1 / -1;
+      /* needed for the floated layout */
+      clear: both;
+    }
+  
+  }
+  
+  .wrapper > * {
+    
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    /* needed for the floated layout*/
+    margin-bottom: 10px;
+  }
+  
+  /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+  @supports (display: grid) {
+    .wrapper > * {
+      width: auto;
+      margin: 0;
+    }
+  }
 
 .moviePosterImg{
     width: 500px;

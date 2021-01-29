@@ -127,49 +127,58 @@ function displayMovieContent(results) {
     var poster = results.poster
     var movieTrailer = results.trailer.link
 
-
+// creates the div to hold everything
     var movieTitleDiv = document.createElement('div');
-
+    movieTitleDiv.classList = "movie-card";
+    movieInfoContainer.appendChild(movieTitleDiv)
+// creates the movie title
     var movieTitle = document.createElement('span');
-    movieTitle.classList = "movieDetails"
+    movieTitle.classList = "movieDetails movie-title"
     movieTitle.textContent = "Movie Title: " + movieName
     movieTitleDiv.appendChild(movieTitle);
-    movieInfoContainer.appendChild(movieTitleDiv);
+    // movieInfoContainer.appendChild(movieTitleDiv);
 
+// creates the movie date
     var movieDateDiv = document.createElement('div');
 
     var movieDate = document.createElement('span');
-    movieDate.classList = "movieDetails"
+    movieDateDiv.classList = "movieDetails movie-date"
     movieDate.textContent = "Release Date: " + releaseDate
     movieDateDiv.appendChild(movieDate)
-    movieInfoContainer.appendChild(movieDateDiv);
-
+    movieTitleDiv.appendChild(movieDateDiv);
+    // movieInfoContainer.appendChild(movieDateDiv);
+// creat the movie run length
     var movieRunTimeDiv = document.createElement('div');
 
     var movieRunTime = document.createElement('span');
-    movieRunTime.classList = "movieDetails"
+    movieRunTimeDiv.classList = "movieDetails movie-runtime"
     movieRunTime.textContent = "Run Time:  " + movieLength
     movieRunTimeDiv.appendChild(movieRunTime);
-    movieInfoContainer.appendChild(movieRunTimeDiv);
+    movieTitleDiv.appendChild(movieRunTimeDiv);
 
-
+// create movie synopsis
     var movieSynopsisDiv = document.createElement('div');
 
     var movieSynopsis = document.createElement('span');
-    movieSynopsis.classList = "movieDetails"
+    movieSynopsisDiv.classList = "movieDetails movie-overview"
     movieSynopsis.textContent = "Movie Overview:  " + movieOverview
     movieSynopsisDiv.appendChild(movieSynopsis);
-    movieInfoContainer.appendChild(movieSynopsisDiv);
+    movieTitleDiv.appendChild(movieSynopsisDiv);
 
-
+// var movieTrailerDiv = document.createElement('div');
+//     movieTitleDiv.classList="trailer";
+//     movieTitleDiv.appendChild(movieTrailerDiv);
+// create movie poster
     var moviePosterDiv = document.createElement('div');
 
     var moviePoster = document.createElement('img')
-    moviePoster.classList = "moviePosterImg";
-    moviePoster.src = poster
+    moviePosterDiv.classList = "moviePosterImg movie-img";
+    moviePoster.classList= "img-size";
+    moviePoster.src = poster;
     moviePosterDiv.appendChild(moviePoster);
+    movieTitleDiv.appendChild(moviePosterDiv);
 
-    movieInfoContainer.appendChild(moviePosterDiv);
+    // movieInfoContainer.appendChild(moviePosterDiv);
 
     var movieTrailerDiv = document.createElement('div');
     // var movieTrailerDiv = $("<div>");
@@ -180,12 +189,17 @@ function displayMovieContent(results) {
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText"
     movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
+<<<<<<< HEAD
    
 
     movieTrailerDiv.appendChild(movieTrailerEl);
   
+=======
+    movieTitleDiv.appendChild(movieTrailerEl);
+   
+>>>>>>> 424b6fbd71d6bba7446043088c4e0bd791999cb2
 
-    movieInfoContainer.appendChild(movieTrailerDiv);
+   
 
     //
 }
