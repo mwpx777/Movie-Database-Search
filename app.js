@@ -163,6 +163,9 @@ function displayMovieContent(results) {
     movieSynopsisDiv.appendChild(movieSynopsis);
     movieTitleDiv.appendChild(movieSynopsisDiv);
 
+// var movieTrailerDiv = document.createElement('div');
+//     movieTitleDiv.classList="trailer";
+//     movieTitleDiv.appendChild(movieTrailerDiv);
 
     var moviePosterDiv = document.createElement('div');
 
@@ -173,13 +176,12 @@ function displayMovieContent(results) {
     moviePosterDiv.appendChild(moviePoster);
     movieTitleDiv.appendChild(moviePosterDiv);
 
-    var movieTrailerDiv = document.createElement('div');
-
+    
     // var movieTrailerEl = document.createElement('iframe')
     // movieTrailerEl.ref = movieTrailer
     // movieTrailerDiv.appendChild(movieTrailerEl);
 
-   movieTitleDiv.appendChild(movieTrailerDiv);
+   
 
     //
 }

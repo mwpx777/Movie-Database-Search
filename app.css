@@ -117,8 +117,7 @@ body{
     height: 80vh;
 }
 /* the card that supplies the grid */
-.movie-card{
-   
+.movie-card{ 
     height: 100%;
     display: grid;
     grid-template-columns: 50%  50%;
@@ -157,6 +156,9 @@ body{
     text-align: center;
     font-family: var(--movie-overview);
     padding: 10px 10px 0 0;
+}
+.trailer{
+    /* grid-row: 6/ span 7; */
 }
 .movie-img {
     display: flex;
