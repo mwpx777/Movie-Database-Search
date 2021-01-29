@@ -118,6 +118,7 @@ function getMovieId(titles) {
 
 
 function displayMovieContent(results) {
+    // go to the spot on the html -- document.getElementById("main-content").innerHTML = ` !HTML `
     movieInfoContainer.textContent = '';
     var movieName = results.title
     var releaseDate = results.year
@@ -171,13 +172,18 @@ function displayMovieContent(results) {
     movieInfoContainer.appendChild(moviePosterDiv);
 
     var movieTrailerDiv = document.createElement('div');
+    // var movieTrailerDiv = $("<div>");
+
 
     var movieTrailerEl = document.createElement('a')
-    movieTrailerEl.href = movieTrailer + '?"' + ( ' target="_blank')
+    movieTrailerEl.href = movieTrailer;
+    movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText"
     movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
+   
+
     movieTrailerDiv.appendChild(movieTrailerEl);
-    
+  
 
     movieInfoContainer.appendChild(movieTrailerDiv);
 
