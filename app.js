@@ -190,9 +190,7 @@ function displayMovieContent(results) {
     movieTrailerEl.classList = "trailerText "
     movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
     movieTitleDiv.appendChild(movieTrailerEl);
-    var movieTrailerPlay= document.createElement("i")
-    movieTrailerPlay.classList="fas fa-play"
-    movieTrailerEl.appendChild(movieTrailerPlay)
+   
 
    
 }
