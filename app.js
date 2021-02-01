@@ -27,7 +27,7 @@ function formSubmitHandler(event) {
         //this will pass searchForm.value into movieSearch function as argument
         //  movieSearch(searchFormText);
         movieSearch(searchFormText);
-
+ 
         // create new <button> tag
         var savedSearchButton = document.createElement("button");
         // give <div> a class
@@ -37,6 +37,7 @@ function formSubmitHandler(event) {
         searchHistory.appendChild(savedSearchButton)
 
         searchArray.push(searchFormText)
+
         localStorage.setItem("Saved Search", JSON.stringify(searchArray))
 
 
@@ -110,6 +111,11 @@ function getMovieId(titles) {
         }).then(response => {
             console.log(response)
             displayMovieContent(response);
+
+        // PUT SECOND API FUNCTION CALL HERE  
+        // functionName(response);
+        // ADD SECOND API at line #203
+
         })
         .catch(err => {
             console.error(err);
