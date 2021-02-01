@@ -127,70 +127,97 @@ function displayMovieContent(results) {
     var poster = results.poster
     var movieTrailer = results.trailer.link
 
-// creates the div to hold everything
+//                MOVIE TITLE START             //
+    // creates the div to hold everything
     var movieTitleDiv = document.createElement('div');
     movieTitleDiv.classList = "movie-card";
-    movieInfoContainer.appendChild(movieTitleDiv)
-// creates the movie title
+    movieInfoContainer.appendChild(movieTitleDiv);
+    // creates the movie title tag
     var movieTitle = document.createElement('span');
-    movieTitle.classList = "movieDetails movie-title"
-    movieTitle.textContent = "Movie Title: " + movieName
+    movieTitle.classList = "movieDetails movie-title";
+    movieTitle.textContent = "Movie Title: " 
+    // movieTitle.textContent = "Movie Title: " + movieName
     movieTitleDiv.appendChild(movieTitle);
-    // movieInfoContainer.appendChild(movieTitleDiv);
+    //  connect  title info to title tag name
+    var movieTitleInfo = document.createElement('span');
+    movieTitleInfo.classList = "movie-title-info";
+    movieTitleInfo.textContent = movieName;
+    movieTitle.appendChild(movieTitleInfo);
+//                MOVIE TITLE END               //
 
-// creates the movie date
+//                MOVIE DATE START             //
+    // creates the movie date div
     var movieDateDiv = document.createElement('div');
-
+    // creates the movie date TAG
     var movieDate = document.createElement('span');
     movieDateDiv.classList = "movieDetails movie-date"
-    movieDate.textContent = "Release Date: " + releaseDate
+    movieDate.textContent = "Release Date: "
     movieDateDiv.appendChild(movieDate)
+    // connect the date info to movie date TAG
+    var movieDateInfo = document.createElement('span')
+    movieDateInfo.classList = "movie-date-info"
+    movieDateInfo.textContent= releaseDate;
+    movieDate.appendChild(movieDateInfo)
     movieTitleDiv.appendChild(movieDateDiv);
-    // movieInfoContainer.appendChild(movieDateDiv);
-// creat the movie run length
-    var movieRunTimeDiv = document.createElement('div');
+//                MOVIE DATE END             //
 
+//                MOVIE RUNTIME START           //    
+    // create the movie run length TAG and DIV
+    var movieRunTimeDiv = document.createElement('div');
     var movieRunTime = document.createElement('span');
     movieRunTimeDiv.classList = "movieDetails movie-runtime"
-    movieRunTime.textContent = "Run Time:  " + movieLength
+    movieRunTime.textContent = "Run Time:  "
     movieRunTimeDiv.appendChild(movieRunTime);
     movieTitleDiv.appendChild(movieRunTimeDiv);
+    // connect the movie run time info and connect to TAG
+    var movieRunTimeInfo = document.createElement('span');
+    movieRunTimeInfo.classList = "movie-runtime-info";
+    movieRunTimeInfo.textContent = movieLength;
+    movieRunTime.appendChild(movieRunTimeInfo);
+//                MOVIE RUNTIME END             //
 
-// create movie synopsis
+//                MOVIE SYNOPSIS START          //
+    // create movie synopsis TAG and DIV
     var movieSynopsisDiv = document.createElement('div');
-
     var movieSynopsis = document.createElement('span');
     movieSynopsisDiv.classList = "movieDetails movie-overview"
-    movieSynopsis.textContent = "Movie Overview:  " + movieOverview
+    movieSynopsis.textContent = "Movie Overview:  "
     movieSynopsisDiv.appendChild(movieSynopsis);
     movieTitleDiv.appendChild(movieSynopsisDiv);
+    // connect movie synopsis info  to TAG
+    var movieSynopsisInfo = document.createElement('span')
+    movieSynopsisInfo.classList = "movie-overview-info"
+    movieSynopsisInfo.textContent = movieOverview;
+    movieSynopsis.appendChild(movieSynopsisInfo);
+//                MOVIE SYNOPSIS END             //    
 
-// var movieTrailerDiv = document.createElement('div');
-//     movieTitleDiv.classList="trailer";
-//     movieTitleDiv.appendChild(movieTrailerDiv);
-// create movie poster
+//                MOVIE POSTER START             //
+
     var moviePosterDiv = document.createElement('div');
-
     var moviePoster = document.createElement('img')
     moviePosterDiv.classList = "moviePosterImg movie-img";
     moviePoster.classList= "img-size";
     moviePoster.src = poster;
     moviePosterDiv.appendChild(moviePoster);
     movieTitleDiv.appendChild(moviePosterDiv);
+//                MOVIE POSTER END              //
 
-    // movieInfoContainer.appendChild(moviePosterDiv);
-
+//                MOVIE TRAILER START            //
     var movieTrailerDiv = document.createElement('div');
-    // var movieTrailerDiv = $("<div>");
-
-
+    movieTrailerDiv.classList="trailer"
     var movieTrailerEl = document.createElement('a')
     movieTrailerEl.href = movieTrailer;
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText "
-    movieTrailerEl.textContent ="Click Here for " + movieName + "trailer"
-    movieTitleDiv.appendChild(movieTrailerEl);
-   
+    movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
+    movieTrailerDiv.appendChild(movieTrailerEl);
+    movieTitleDiv.appendChild(movieTrailerDiv);
+
+    // add a  play button on the image
+    var playButton = document.createElement("i")
+    playButton.classList = "fas fa-play";
+    movieTrailerEl.appendChild(playButton);
+//                MOVIE TRAILER END             //
 
    
 }
