@@ -195,6 +195,9 @@ function displayMovieContent(results) {
     movieRating.innerHTML = "Rating: " + rating + " 😐"}
   if(rating<=4){
     movieRating.innerHTML = "Rating: " + rating + " 🥔"}
+  if(rating === null){
+    movieRating.textContent = "";
+}
   
   movieRatingDiv.appendChild(movieRating);
   movieTitleDiv.appendChild(movieRatingDiv);
