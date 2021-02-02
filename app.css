@@ -150,7 +150,7 @@ body{
     font-weight: 700 ;
     font-size: 2rem;
     padding: 0;
-margin:0;
+    margin:0;
 }
 /* END movie TITLE Tag holder and Api info */
 /* Start movie DATE Tag holder and Api info */
@@ -211,6 +211,13 @@ margin:0;
     font-family: var(--api-overview);
     font-size: 1.8rem;
     font-weight: 600;
+}
+.movie-rating{
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 /* End movie OVERVIEW Tag holder and Api info */
 /* trailer css START */

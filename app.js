@@ -185,30 +185,6 @@ function displayMovieContent(results) {
     movieTitleDiv.appendChild(movieRunTimeDiv);
 //                MOVIE RUNTIME END             //
 
-//                 MOVIE RATING START          //
-  // create the movie rating TAG and DIV
-  var movieRatingDiv = document.createElement('div');
-  var movieRating = document.createElement('span');
-  movieRatingDiv.classList = "movieDetails movie-rating"
-  if(rating>=7){
-    movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
-  if(rating =5){
-    movieRating.innerHTML = "Rating: " + rating + " 😐"}
-  if(rating<=4){
-    movieRating.innerHTML = "Rating: " + rating + " 🥔"}
-  if(rating === null){
-    movieRating.textContent = "";
-}
-  
-  movieRatingDiv.appendChild(movieRating);
-  movieTitleDiv.appendChild(movieRatingDiv);
-  // connect the movie run time info and connect to TAG
-  var movieRunTimeInfo = document.createElement('span');
-  movieRatingInfo.classList = "movie-runtime-info";
-  movieRatingInfo.textContent = movieLength;
-  movieRating.appendChild(movieRatingInfo);
-  //                MOVIE RUNTIME END             //
-
 
 //                MOVIE SYNOPSIS START          //
     // create movie synopsis DIV
@@ -225,35 +201,54 @@ function displayMovieContent(results) {
     movieSynopsisInfo.classList = "movie-overview-info"
     movieSynopsisInfo.textContent = movieOverview;
     movieSynopsisDiv.appendChild(movieSynopsisInfo);
-//                MOVIE SYNOPSIS END             //    
+//                MOVIE SYNOPSIS END             // 
 
 //                MOVIE POSTER START             //
 
-    var moviePosterDiv = document.createElement('div');
-    var moviePoster = document.createElement('img')
-    moviePosterDiv.classList = "moviePosterImg movie-img";
-    moviePoster.classList= "img-size";
-    moviePoster.src = poster;
-    moviePosterDiv.appendChild(moviePoster);
-    movieTitleDiv.appendChild(moviePosterDiv);
+var moviePosterDiv = document.createElement('div');
+var moviePoster = document.createElement('img')
+moviePosterDiv.classList = "moviePosterImg movie-img";
+moviePoster.classList= "img-size";
+moviePoster.src = poster;
+moviePosterDiv.appendChild(moviePoster);
+movieTitleDiv.appendChild(moviePosterDiv);
 //                MOVIE POSTER END              //
 
 //                MOVIE TRAILER START            //
-    var movieTrailerDiv = document.createElement('div');
-    movieTrailerDiv.classList="trailer"
-    var movieTrailerEl = document.createElement('a')
-    movieTrailerEl.href = movieTrailer;
-    movieTrailerEl.target = "_blank";
-    movieTrailerEl.classList = "trailerText "
-    movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
-    movieTrailerDiv.appendChild(movieTrailerEl);
-    movieTitleDiv.appendChild(movieTrailerDiv);
+var movieTrailerDiv = document.createElement('div');
+movieTrailerDiv.classList="trailer"
+var movieTrailerEl = document.createElement('a')
+movieTrailerEl.href = movieTrailer;
+movieTrailerEl.target = "_blank";
+movieTrailerEl.classList = "trailerText "
+movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
+movieTrailerDiv.appendChild(movieTrailerEl);
+movieTitleDiv.appendChild(movieTrailerDiv);
 
-    // add a  play button on the image
-    var playButton = document.createElement("i")
-    playButton.classList = "fas fa-play";
-    movieTrailerEl.appendChild(playButton);
+// add a  play button on the image
+var playButton = document.createElement("i")
+playButton.classList = "fas fa-play";
+movieTrailerEl.appendChild(playButton);
 //                MOVIE TRAILER END             //
+//                MOVIE RATING START           //
+  // create the movie rating TAG and DIV
+  var movieRatingDiv = document.createElement('div');
+  var movieRating = document.createElement('span');
+  movieRatingDiv.classList = "movieDetails movie-rating"
+  if(rating>=7){
+    movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
+  if(rating =5){
+    movieRating.innerHTML = "Rating: " + rating + " 😐"}
+  if(rating<=4){
+    movieRating.innerHTML = "Rating: " + rating + " 🥔"}
+  if(rating === null){
+    movieRating.textContent = "";
+}
+  
+  movieRatingDiv.appendChild(movieRating);
+  movieTitleDiv.appendChild(movieRatingDiv);
+//                  MOVIE RATING END           //
+
 
    
 }
