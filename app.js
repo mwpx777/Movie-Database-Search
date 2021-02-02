@@ -132,6 +132,8 @@ function displayMovieContent(results) {
     var movieOverview = results.plot
     var poster = results.poster
     var movieTrailer = results.trailer.link
+    var rating = results.rating
+   
 
 //                MOVIE TITLE START             //
     // creates the div to hold everything
@@ -182,6 +184,31 @@ function displayMovieContent(results) {
     movieRunTimeDiv.appendChild(movieRunTimeInfo);
     movieTitleDiv.appendChild(movieRunTimeDiv);
 //                MOVIE RUNTIME END             //
+
+//                 MOVIE RATING START          //
+  // create the movie rating TAG and DIV
+  var movieRatingDiv = document.createElement('div');
+  var movieRating = document.createElement('span');
+  movieRatingDiv.classList = "movieDetails movie-rating"
+  if(rating>=7){
+    movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
+  if(rating =5){
+    movieRating.innerHTML = "Rating: " + rating + " 😐"}
+  if(rating<=4){
+    movieRating.innerHTML = "Rating: " + rating + " 🥔"}
+  if(rating === null){
+    movieRating.textContent = "";
+}
+  
+  movieRatingDiv.appendChild(movieRating);
+  movieTitleDiv.appendChild(movieRatingDiv);
+  // connect the movie run time info and connect to TAG
+  var movieRunTimeInfo = document.createElement('span');
+  movieRatingInfo.classList = "movie-runtime-info";
+  movieRatingInfo.textContent = movieLength;
+  movieRating.appendChild(movieRatingInfo);
+  //                MOVIE RUNTIME END             //
+
 
 //                MOVIE SYNOPSIS START          //
     // create movie synopsis DIV
