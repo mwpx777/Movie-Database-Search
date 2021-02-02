@@ -17,12 +17,20 @@
     --movie-time:"Poppins",sans-serif ;
     --movie-overview: "Poppins",sans-serif ;
     /* TAGS END */
+    /* Border Colors */
+    
+    
+    /* background-color: #FEE140;
+    background-image: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%); */
+
+
     --border-color: #f6c90E;
     /* INFO PULLED FROM API's START */
     --api-title:'Cinzel', serif;
     --api-date: 'Changa One', cursive;
     --api-runtime:'Changa One', cursive;
     --api-overview:'Dosis', sans-serif;
+    
 
     /* INFO PULLED FROM API's END */
 }
@@ -31,7 +39,11 @@
     box-sizing: border-box;
   }
 body{
-    background-color: lightblue;
+    background-color: #bbc1ff;
+    background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);
+
+
+
 }
 .wrapper {
     max-width: 1260px;
@@ -54,12 +66,18 @@ body{
     /* needed for the floated layout */
     clear: both;
     border: 2px solid black;
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+    
     
 }
 .footer{
     background:var(--titles);   
     text-align: center;
     font-family: var(--page-title);
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+
 }
 /* END  HEADER &  FOOTER  */
 /* START SIDEBAR  */
@@ -130,7 +148,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: 50%  50%;
-    grid-template-rows: 5% 5% 5% 5% 20% 20% 20% 20%;
+    grid-template-rows: 5% 5% 5% 5% 5% 5% 10% 20% 20% 20%;
 }
 /* START movie TITLE Tag holder and Api info */
 .movie-title {
@@ -144,7 +162,9 @@ body{
     
 }
 .movie-title-info{
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 4px ridge;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%);
     padding: 0 20px;
     font-family: var(--api-title);
     font-weight: 700 ;
@@ -157,11 +177,13 @@ body{
 .movie-date {
     margin-top: 5px;
     text-align: left;
-    grid-row: 2;
+    grid-row: 3;
 }
 .movie-date-tag {
     font-family: var(--movie-date);
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
     font-weight: bold;
     font-size: 1.4;
 }
@@ -175,15 +197,19 @@ body{
 /* Start movie TIME Tag holder and Api info */
 .movie-runtime {
     text-align: left;
-    grid-row: 3;
+    grid-row: 4;
     font-family: var(--movie-time);
 }
 .movie-runtime-tag {
     border-bottom: 2px solid var(--border-color);
     font-weight: bold;
     font-size: 1.4;
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
 }
 .movie-runtime-info{
+    
     font-family: var(--api-runtime);
     margin-left: 5px;
     font-size: 1.8rem;
@@ -193,41 +219,57 @@ body{
 .movie-overview{
     display: flex;
     flex-direction: column;
-    grid-row: 4 ;
+    grid-row: 5 ;
     
 }
 .movie-overview-tag {
     display: flex;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
     width: 200px; 
-    grid-row: 5;
+    grid-row: 6;
     font-family: var(--movie-overview);
     font-weight: bold;
     font-size: 1.4;
 }
 .movie-overview-info {
     display: flex; 
-    grid-row: 6;
+    grid-row: 7;
     font-family: var(--api-overview);
     font-size: 1.8rem;
     font-weight: 600;
 }
+/* End movie OVERVIEW Tag holder and Api info */
+/* START movie rating */
 .movie-rating{
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-end;
+    text-align: right;
 }
-/* End movie OVERVIEW Tag holder and Api info */
+.movie-rating-info{
+    font-family: var(--page-title);
+}
+/* END movie rating */
+/* ?????????? CSS for the add on. it will assign it to below the rating and above the Img */
+.addon-postion{
+    grid-column: 2;
+    grid-row: 3 / span 4;
+}
+
+
+/* ???????????????? */
 /* trailer css START */
 .trailer {
     display: flex;
     justify-content: center;
     justify-content: space-around;
     grid-column: 1;
-    grid-row: 7/ span 8;
-    margin: 0 0 5px 5px;    
+    grid-row: 9/ span 10;
+    margin: 0 0 5px 5px;   
+    
 }
 .trailerText{
     display: flex;
@@ -246,12 +288,14 @@ body{
     color: #f6c90e;
     height: 270px;
     width: 270px;
+    
 }
 .i {
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size:1.6 rem;
+    
 }
 .fa-play:before {
     font-size: 3rem;
@@ -259,12 +303,13 @@ body{
 /* Trailer CSS END */
 .movie-img {
     display: flex;
-    justify-content: center;
+    
     align-items: center;
     align-self: center;
     grid-column: 2 ;
-    grid-row-start: 5;
-    grid-row-end: 9;
+    grid-row-start: 8;
+    grid-row-end: 10;
+    
 }
 /* POSTER IMAGE SIZE */
  .img-size{

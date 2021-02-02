@@ -235,6 +235,7 @@ movieTrailerEl.appendChild(playButton);
   var movieRatingDiv = document.createElement('div');
   var movieRating = document.createElement('span');
   movieRatingDiv.classList = "movieDetails movie-rating"
+  movieRating.classList = "movie-rating-info"
   if(rating>=7){
     movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
   if(rating =5){
