@@ -11,16 +11,22 @@
     --fontcolor: black;
     --history-title:"Poppins",sans-serif ;
     --history-list:"Poppins",sans-serif ;
+    /* TAGS START */
     --movie-title:"Poppins",sans-serif ;
     --movie-date:"Poppins",sans-serif ;
     --movie-time:"Poppins",sans-serif ;
-    --movie-overview:Arial, Helvetica, sans-serif;
+    --movie-overview: "Poppins",sans-serif ;
+    /* TAGS END */
     --border-color: #f6c90E;
-   
+    /* INFO PULLED FROM API's START */
+    --api-title:'Cinzel', serif;
+    --api-date: 'Changa One', cursive;
+    --api-runtime:'Changa One', cursive;
+    --api-overview:'Dosis', sans-serif;
 
-    
+    /* INFO PULLED FROM API's END */
 }
-/* BASE START */
+/* START BASE  */
 *, *:before, *:after {
     box-sizing: border-box;
   }
@@ -34,11 +40,11 @@ body{
     grid-gap: 10px;
   
 }
-/* BASE END */
-/* HEADER & FOOTER START */
+/* END BASE  */
+/* START  HEADER & FOOTER  */
 .header{
     text-align: center;
-    font-size:5rem;
+    
     font-weight: bold;
     background: var(--titles);
     font-family: var(--page-title);
@@ -55,8 +61,8 @@ body{
     text-align: center;
     font-family: var(--page-title);
 }
-/* HEADER &  FOOTER END */
-/* SIDEBAR START */
+/* END  HEADER &  FOOTER  */
+/* START SIDEBAR  */
 .sidebar  {
     text-align: center;
     display: flex;
@@ -78,6 +84,7 @@ body{
     padding: 5px 10px ;
     font-family: var(--history-list);
     width: 100%;
+    font-size: 1.2rem;
 }
 .searchHistory {
     display: flex;
@@ -103,60 +110,109 @@ body{
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+    
 }
 .delete {
     display: flex;
     justify-content: end;
     justify-content: space-between;   
+    font-size: 1.2rem;
+    font-weight: 400;
 }
-/* SIDE BAR END */
-/* MOVIE INFO START */
-/* container to hold the card */
-.container {
-    
+/* END SIDE BAR  */
+/* START MOVIE INFO  */
+/*                  */
+.container {   
     height: 80vh;
+    
 }
-/* the card that supplies the grid */
 .movie-card{ 
     height: 100%;
     display: grid;
     grid-template-columns: 50%  50%;
     grid-template-rows: 5% 5% 5% 5% 20% 20% 20% 20%;
 }
+/* START movie TITLE Tag holder and Api info */
 .movie-title {
     justify-content: center;
     text-align: center;
     align-items: center;
-    grid-column: 1;
+    grid-column: 1 / span 2;
     font-family: var(--movie-title);
-    border-bottom: 2px solid var(--border-color);
-}
-.movie-date {
-    text-align: left;
-    grid-row: 3;
-    font-family: var(--movie-date);
+    font-size: 1.7rem;
+    
     
 }
-.movie-date span{
+.movie-title-info{
     border-bottom: 2px solid var(--border-color);
+    padding: 0 20px;
+    font-family: var(--api-title);
+    font-weight: 700 ;
+    font-size: 2rem;
+    padding: 0;
+margin:0;
 }
+/* END movie TITLE Tag holder and Api info */
+/* Start movie DATE Tag holder and Api info */
+.movie-date {
+    margin-top: 5px;
+    text-align: left;
+    grid-row: 2;
+}
+.movie-date-tag {
+    font-family: var(--movie-date);
+    border-bottom: 2px solid var(--border-color);
+    font-weight: bold;
+    font-size: 1.4;
+}
+.movie-date-info {
+    margin-left: 5px;
+    font-family: var(--api-date);
+    font-size: 1.8rem;
+
+}
+/* End movie DATE tag  holder and Api info */
+/* Start movie TIME Tag holder and Api info */
 .movie-runtime {
     text-align: left;
-    grid-row: 4;
+    grid-row: 3;
     font-family: var(--movie-time);
 }
-.movie-runtime span {
+.movie-runtime-tag {
     border-bottom: 2px solid var(--border-color);
+    font-weight: bold;
+    font-size: 1.4;
 }
+.movie-runtime-info{
+    font-family: var(--api-runtime);
+    margin-left: 5px;
+    font-size: 1.8rem;
+}
+/* END movie TIME Tag holder and Api info */
+/* Start movie OVERVIEW Tag holder and Api info */
 .movie-overview{
     display: flex;
-    justify-content: center;
-    text-align: center;
-    grid-row: 5 ;
-    text-align: center;
-    font-family: var(--movie-overview);
-    padding: 10px 10px 0 0;
+    flex-direction: column;
+    grid-row: 4 ;
+    
 }
+.movie-overview-tag {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    width: 200px; 
+    grid-row: 5;
+    font-family: var(--movie-overview);
+    font-weight: bold;
+    font-size: 1.4;
+}
+.movie-overview-info {
+    display: flex; 
+    grid-row: 6;
+    font-family: var(--api-overview);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+/* End movie OVERVIEW Tag holder and Api info */
 /* trailer css START */
 .trailer {
     display: flex;
@@ -262,13 +318,10 @@ body{
     pointer-events: none;
     transition: 500ms ease-in-out;
 }
-
 #overlay.active{
     pointer-events:all;
     opacity:1;
 }
-
-
 
 
 @media screen and (min-width: 500px) {
