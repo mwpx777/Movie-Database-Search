@@ -149,9 +149,9 @@ body{
     grid-template-columns: 50%  50%;
     grid-template-rows: 5% 5% 5% 5% 5% 5% 10% 20% 20% 20%;
 }
-.movie-card{ 
+/* .movie-card{ 
     
-}
+} */
 /* START movie TITLE Tag holder and Api info */
 .movie-title {
     justify-content: center;
