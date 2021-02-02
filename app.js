@@ -259,7 +259,7 @@ function displayMovieContent(results) {
 }
     //                  MOVIE RATING END           //
 
-    // //                  GET STREAMING DATA START          //
+    //                  GET STREAMING DATA START          //
     
     function getStreamingData(result) {
         console.log(result)
@@ -315,6 +315,7 @@ function displayMovieContent(results) {
             sourceButton.target = "_blank";
             sourceButton.textContent =  "CLICK TO STREAM"
             sourceDiv.appendChild(sourceButton);
+            movieInfoContainer.appendChild(sourceDiv);
       
 } 
 }
