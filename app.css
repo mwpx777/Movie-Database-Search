@@ -16,6 +16,8 @@
     --movie-date:"Poppins",sans-serif ;
     --movie-time:"Poppins",sans-serif ;
     --movie-overview: "Poppins",sans-serif ;
+    --button: "Poppins",sans-serif ;
+
     /* TAGS END */
     /* Border Colors */
     
@@ -428,5 +430,20 @@ body{
     0% {background-color: #3a4570 }
     50% {background-color: #a1a1a1}
     100% {background-color: #3a4570 }
+}
+
+.button{
+    border-radius: 20px;
+    border:5px solid black;
+    background-color:#f6c90e;
+    text-decoration: none;
+    font-family: var(--button);
+    padding: 0  0.5rem;
+    margin: 0 0.5rem;
+}
+
+.movie-stream{
+    font-family: var(--movie-title);
+
 }
 

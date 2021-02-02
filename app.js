@@ -27,7 +27,7 @@ function formSubmitHandler(event) {
         //this will pass searchForm.value into movieSearch function as argument
         //  movieSearch(searchFormText);
         movieSearch(searchFormText);
- 
+
         // create new <button> tag
         var savedSearchButton = document.createElement("button");
         // give <div> a class
@@ -111,14 +111,12 @@ function getMovieId(titles) {
         }).then(response => {
             console.log(response)
             displayMovieContent(response);
+            getStreamingData(response.id);
 
-        // PUT SECOND API FUNCTION CALL HERE  
-        // functionName(response);
-        // ADD SECOND API at line #203
 
         })
         .catch(err => {
-            console.error(err);
+            // console.error(err);
         });
 }
 
@@ -133,9 +131,9 @@ function displayMovieContent(results) {
     var poster = results.poster
     var movieTrailer = results.trailer.link
     var rating = results.rating
-   
 
-//                MOVIE TITLE START             //
+
+    //                MOVIE TITLE START             //
     // creates the div to hold everything
     var movieTitleDiv = document.createElement('div');
     movieTitleDiv.classList = "movie-card";
@@ -149,9 +147,9 @@ function displayMovieContent(results) {
     movieTitleInfo.classList = "movie-title-info";
     movieTitleInfo.textContent = movieName;
     movieTitle.appendChild(movieTitleInfo);
-//                MOVIE TITLE END               //
+    //                MOVIE TITLE END               //
 
-//                MOVIE DATE START             //
+    //                MOVIE DATE START             //
     // creates the movie date div
     var movieDateDiv = document.createElement('div');
     movieDateDiv.classList = "movieDetails movie-date"
@@ -163,12 +161,12 @@ function displayMovieContent(results) {
     // connect the date info to movie date TAG
     var movieDateInfo = document.createElement('span')
     movieDateInfo.classList = "movie-date-info"
-    movieDateInfo.textContent= releaseDate;
+    movieDateInfo.textContent = releaseDate;
     movieDateDiv.appendChild(movieDateInfo)
     movieTitleDiv.appendChild(movieDateDiv);
-//                MOVIE DATE END             //
+    //                MOVIE DATE END             //
 
-//                MOVIE RUNTIME START           //    
+    //                MOVIE RUNTIME START           //    
     // create the movie run length DIV
     var movieRunTimeDiv = document.createElement('div');
     movieRunTimeDiv.classList = "movieDetails movie-runtime"
@@ -183,15 +181,15 @@ function displayMovieContent(results) {
     movieRunTimeInfo.textContent = movieLength;
     movieRunTimeDiv.appendChild(movieRunTimeInfo);
     movieTitleDiv.appendChild(movieRunTimeDiv);
-//                MOVIE RUNTIME END             //
+    //                MOVIE RUNTIME END             //
 
 
-//                MOVIE SYNOPSIS START          //
+    //                MOVIE SYNOPSIS START          //
     // create movie synopsis DIV
     var movieSynopsisDiv = document.createElement('div');
     movieSynopsisDiv.classList = "movieDetails movie-overview"
     // creat movie synopsis TAG
-    var movieSynopsis = document.createElement('span');    
+    var movieSynopsis = document.createElement('span');
     movieSynopsis.classList = "movie-overview-tag"
     movieSynopsis.textContent = "Movie Overview:  "
     movieSynopsisDiv.appendChild(movieSynopsis);
@@ -201,105 +199,165 @@ function displayMovieContent(results) {
     movieSynopsisInfo.classList = "movie-overview-info"
     movieSynopsisInfo.textContent = movieOverview;
     movieSynopsisDiv.appendChild(movieSynopsisInfo);
-//                MOVIE SYNOPSIS END             // 
+    //                MOVIE SYNOPSIS END             // 
 
-//                MOVIE POSTER START             //
+    //                MOVIE POSTER START             //
 
-var moviePosterDiv = document.createElement('div');
-var moviePoster = document.createElement('img')
-moviePosterDiv.classList = "moviePosterImg movie-img";
-moviePoster.classList= "img-size";
-moviePoster.src = poster;
-moviePosterDiv.appendChild(moviePoster);
-movieTitleDiv.appendChild(moviePosterDiv);
-//                MOVIE POSTER END              //
+    var moviePosterDiv = document.createElement('div');
+    var moviePoster = document.createElement('img')
+    moviePosterDiv.classList = "moviePosterImg movie-img";
+    moviePoster.classList = "img-size";
+    moviePoster.src = poster ;
+    moviePoster.setAttribute("alt", movieName);
+    moviePosterDiv.appendChild(moviePoster);
+    movieTitleDiv.appendChild(moviePosterDiv);
+    //                MOVIE POSTER END              //
 
-//                MOVIE TRAILER START            //
-var movieTrailerDiv = document.createElement('div');
-movieTrailerDiv.classList="trailer"
-var movieTrailerEl = document.createElement('a')
-movieTrailerEl.href = movieTrailer;
-movieTrailerEl.target = "_blank";
-movieTrailerEl.classList = "trailerText "
-movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
-movieTrailerDiv.appendChild(movieTrailerEl);
-movieTitleDiv.appendChild(movieTrailerDiv);
+    //                MOVIE TRAILER START            //
+    var movieTrailerDiv = document.createElement('div');
+    movieTrailerDiv.classList = "trailer"
+    var movieTrailerEl = document.createElement('a')
+    movieTrailerEl.href = movieTrailer;
+    movieTrailerEl.target = "_blank";
+    movieTrailerEl.classList = "trailerText "
+    movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer"
+    movieTrailerDiv.appendChild(movieTrailerEl);
+    movieTitleDiv.appendChild(movieTrailerDiv);
 
-// add a  play button on the image
-var playButton = document.createElement("i")
-playButton.classList = "fas fa-play";
-movieTrailerEl.appendChild(playButton);
-//                MOVIE TRAILER END             //
-//                MOVIE RATING START           //
-  // create the movie rating TAG and DIV
-  var movieRatingDiv = document.createElement('div');
-  var movieRating = document.createElement('span');
-  movieRatingDiv.classList = "movieDetails movie-rating"
-  movieRating.classList = "movie-rating-info"
-  if(rating>=7){
-    movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
-  else if(rating <= 6.9 || rating >= 3.1){
-    movieRating.innerHTML = "Rating: " + rating + " 😐"}
-  else if(rating<=3){
-    movieRating.innerHTML = "Rating: " + rating + " 🥔"}
-   else if(rating === null){
-    movieRating.textContent = "";
-}
-  
-  movieRatingDiv.appendChild(movieRating);
-  movieTitleDiv.appendChild(movieRatingDiv);
-//                  MOVIE RATING END           //
+    // add a  play button on the image
+    var playButton = document.createElement("i")
+    playButton.classList = "fas fa-play";
+    movieTrailerEl.appendChild(playButton);
+    //                MOVIE TRAILER END             //
 
-
-   
-}
-
-function loadSearchData() {
-    //if no saved data in localStorage, create new searchArray
-    if (localStorage.getItem("Saved Search") === null) {
-        var searchArray = [];
-    } else {
-        searchArray = JSON.parse(localStorage.getItem('Saved Search'))
+    //                MOVIE RATING START           //
+    // create the movie rating TAG and DIV
+    var movieRatingDiv = document.createElement('div');
+    var movieRating = document.createElement('span');
+    movieRatingDiv.classList = "movieDetails movie-rating"
+    movieRating.classList = "movie-rating-info"
+    if (rating >= 7) {
+        movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"
+    }
+    else if (rating <= 6.9 || rating >= 3.1) {
+        movieRating.innerHTML = "Rating: " + rating + " 😐"
+    }
+    else if (rating <= 3) {
+        movieRating.innerHTML = "Rating: " + rating + " 🥔"
+    }
+    else if (rating === null) {
+        movieRating.textContent = "";
     }
 
-    searchArray.forEach(function (stored) {
-        // create new <button> tag
-        var savedSearchButton = document.createElement("button");
-        // give <div> a class
-        savedSearchButton.classList = "savedSearch"
-        // add text to the element
-        savedSearchButton.textContent = stored;
-
-        searchHistory.appendChild(savedSearchButton)
-
-    })
-
+    movieRatingDiv.appendChild(movieRating);
+    movieTitleDiv.appendChild(movieRatingDiv);
 }
-function clearLocalStorage() {   
-    searchHistory.innerHTML="";
-    localStorage.clear()
+    //                  MOVIE RATING END           //
+
+    //                  GET STREAMING DATA START          //
+    
+    function getStreamingData(result) {
+        console.log(result)
+        console.log('get streaming success')
+        fetch("https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?source_id=" + result + "&source=imdb&country=us", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "da0cdc4952msh45d257d4e85230ep1fceddjsn2f034e24d454",
+                "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com"
+            }
+        })
+            .then(response => {
+                return (response.json());
+
+            })
+
+            .then(response => {
+                console.log(response);
+                displayStreamContent(response.collection);
+            })
+    }
+    //                  GET STREAMING DATA END         //
+
+    //                  DISPLAY STREAM CONTENT START        //
+    function displayStreamContent(collection){
+        for(var i = 0; i < 5; i++){
+            
+            let siteName = collection.locations[i].display_name
+            let siteUrl = collection.locations[i].url
+             console.log(siteName)
+             console.log(siteUrl)
+            // let streamUrl = collection.
+
+                       
+            // create new span
+            var sourceName= document.createElement("span");
+            // create class list
+            sourceName.classList =   "movie-stream"
+            // give textContent the sitename variable
+            sourceName.textContent =  siteName ;
+            // append siteNameEl to movieContainer
+            movieInfoContainer.appendChild(sourceName);
+
+           
+            var sourceButton= document.createElement("a");
+            sourceButton.classList =  "button"
+            sourceButton.href = siteUrl
+            sourceButton.target = "_blank";
+            sourceButton.textContent =  "CLICK TO STREAM"
+            movieInfoContainer.appendChild(sourceButton);
+      
+} 
 }
+   
+    //                  DISPLAY STREAMING DATA END        //
 
 
-//variable for sending searchHistory to savedSearches function
-$('.searchHistory').on('click', 'button', function () {
-    var savedSearchButton = $(this).text();
+    function loadSearchData() {
+        //if no saved data in localStorage, create new searchArray
+        if (localStorage.getItem("Saved Search") === null) {
+            var searchArray = [];
+        } else {
+            searchArray = JSON.parse(localStorage.getItem('Saved Search'))
+        }
 
-    savedSearches(savedSearchButton);
-    // console.log(savedSearchButton);
+        searchArray.forEach(function (stored) {
+            // create new <button> tag
+            var savedSearchButton = document.createElement("button");
+            // give <div> a class
+            savedSearchButton.classList = "savedSearch"
+            // add text to the element
+            savedSearchButton.textContent = stored;
 
-});
+            searchHistory.appendChild(savedSearchButton)
 
-function savedSearches(savedButton) {
-    // console.log(savedButton)
-    // console.log('button clicked')
-    movieSearch(savedButton);
+        })
 
-}
+    }
+    function clearLocalStorage() {
+        searchHistory.innerHTML = "";
+        localStorage.clear()
+    }
 
-searchButton.addEventListener('click', formSubmitHandler)
-clearSearches.addEventListener('click', clearLocalStorage)
-dataCloseButton.addEventListener('click', closeModal)
 
-loadSearchData()
+    //variable for sending searchHistory to savedSearches function
+    $('.searchHistory').on('click', 'button', function () {
+        var savedSearchButton = $(this).text();
+
+        savedSearches(savedSearchButton);
+        // console.log(savedSearchButton);
+
+    });
+
+    function savedSearches(savedButton) {
+        // console.log(savedButton)
+        // console.log('button clicked')
+        movieSearch(savedButton);
+
+    }
+
+    searchButton.addEventListener('click', formSubmitHandler)
+    clearSearches.addEventListener('click', clearLocalStorage)
+    dataCloseButton.addEventListener('click', closeModal)
+
+    loadSearchData()
 
