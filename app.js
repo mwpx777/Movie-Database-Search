@@ -143,8 +143,6 @@ function displayMovieContent(results) {
     // creates the movie title tag
     var movieTitle = document.createElement('span');
     movieTitle.classList = "movieDetails movie-title";
-    movieTitle.textContent = "Movie Title: " 
-    // movieTitle.textContent = "Movie Title: " + movieName
     movieTitleDiv.appendChild(movieTitle);
     //  connect  title info to title tag name
     var movieTitleInfo = document.createElement('span');
@@ -156,39 +154,88 @@ function displayMovieContent(results) {
 //                MOVIE DATE START             //
     // creates the movie date div
     var movieDateDiv = document.createElement('div');
+    movieDateDiv.classList = "movieDetails movie-date"
     // creates the movie date TAG
     var movieDate = document.createElement('span');
-    movieDateDiv.classList = "movieDetails movie-date"
+    movieDate.classList = "movie-date-tag"
     movieDate.textContent = "Release Date: "
     movieDateDiv.appendChild(movieDate)
     // connect the date info to movie date TAG
     var movieDateInfo = document.createElement('span')
     movieDateInfo.classList = "movie-date-info"
     movieDateInfo.textContent= releaseDate;
-    movieDate.appendChild(movieDateInfo)
+    movieDateDiv.appendChild(movieDateInfo)
     movieTitleDiv.appendChild(movieDateDiv);
 //                MOVIE DATE END             //
 
 //                MOVIE RUNTIME START           //    
-    // create the movie run length TAG and DIV
+    // create the movie run length DIV
     var movieRunTimeDiv = document.createElement('div');
-    var movieRunTime = document.createElement('span');
     movieRunTimeDiv.classList = "movieDetails movie-runtime"
+    // create the movie runtime TAG
+    var movieRunTime = document.createElement('span');
+    movieRunTime.classList = "movie-runtime-tag"
     movieRunTime.textContent = "Run Time:  "
     movieRunTimeDiv.appendChild(movieRunTime);
-    movieTitleDiv.appendChild(movieRunTimeDiv);
     // connect the movie run time info and connect to TAG
     var movieRunTimeInfo = document.createElement('span');
     movieRunTimeInfo.classList = "movie-runtime-info";
     movieRunTimeInfo.textContent = movieLength;
-    movieRunTime.appendChild(movieRunTimeInfo);
+    movieRunTimeDiv.appendChild(movieRunTimeInfo);
+    movieTitleDiv.appendChild(movieRunTimeDiv);
 //                MOVIE RUNTIME END             //
 
-//                 MOVIE RATING START          //
+
+//                MOVIE SYNOPSIS START          //
+    // create movie synopsis DIV
+    var movieSynopsisDiv = document.createElement('div');
+    movieSynopsisDiv.classList = "movieDetails movie-overview"
+    // creat movie synopsis TAG
+    var movieSynopsis = document.createElement('span');    
+    movieSynopsis.classList = "movie-overview-tag"
+    movieSynopsis.textContent = "Movie Overview:  "
+    movieSynopsisDiv.appendChild(movieSynopsis);
+    movieTitleDiv.appendChild(movieSynopsisDiv);
+    // connect movie synopsis info  to TAG
+    var movieSynopsisInfo = document.createElement('span')
+    movieSynopsisInfo.classList = "movie-overview-info"
+    movieSynopsisInfo.textContent = movieOverview;
+    movieSynopsisDiv.appendChild(movieSynopsisInfo);
+//                MOVIE SYNOPSIS END             // 
+
+//                MOVIE POSTER START             //
+
+var moviePosterDiv = document.createElement('div');
+var moviePoster = document.createElement('img')
+moviePosterDiv.classList = "moviePosterImg movie-img";
+moviePoster.classList= "img-size";
+moviePoster.src = poster;
+moviePosterDiv.appendChild(moviePoster);
+movieTitleDiv.appendChild(moviePosterDiv);
+//                MOVIE POSTER END              //
+
+//                MOVIE TRAILER START            //
+var movieTrailerDiv = document.createElement('div');
+movieTrailerDiv.classList="trailer"
+var movieTrailerEl = document.createElement('a')
+movieTrailerEl.href = movieTrailer;
+movieTrailerEl.target = "_blank";
+movieTrailerEl.classList = "trailerText "
+movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
+movieTrailerDiv.appendChild(movieTrailerEl);
+movieTitleDiv.appendChild(movieTrailerDiv);
+
+// add a  play button on the image
+var playButton = document.createElement("i")
+playButton.classList = "fas fa-play";
+movieTrailerEl.appendChild(playButton);
+//                MOVIE TRAILER END             //
+//                MOVIE RATING START           //
   // create the movie rating TAG and DIV
   var movieRatingDiv = document.createElement('div');
   var movieRating = document.createElement('span');
   movieRatingDiv.classList = "movieDetails movie-rating"
+  movieRating.classList = "movie-rating-info"
   if(rating>=7){
     movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
   if(rating =5){
@@ -201,56 +248,8 @@ function displayMovieContent(results) {
   
   movieRatingDiv.appendChild(movieRating);
   movieTitleDiv.appendChild(movieRatingDiv);
-  // connect the movie run time info and connect to TAG
-  var movieRunTimeInfo = document.createElement('span');
-  movieRatingInfo.classList = "movie-runtime-info";
-  movieRatingInfo.textContent = movieLength;
-  movieRating.appendChild(movieRatingInfo);
-  //                MOVIE RUNTIME END             //
+//                  MOVIE RATING END           //
 
-
-//                MOVIE SYNOPSIS START          //
-    // create movie synopsis TAG and DIV
-    var movieSynopsisDiv = document.createElement('div');
-    var movieSynopsis = document.createElement('span');
-    movieSynopsisDiv.classList = "movieDetails movie-overview"
-    movieSynopsis.textContent = "Movie Overview:  "
-    movieSynopsisDiv.appendChild(movieSynopsis);
-    movieTitleDiv.appendChild(movieSynopsisDiv);
-    // connect movie synopsis info  to TAG
-    var movieSynopsisInfo = document.createElement('span')
-    movieSynopsisInfo.classList = "movie-overview-info"
-    movieSynopsisInfo.textContent = movieOverview;
-    movieSynopsis.appendChild(movieSynopsisInfo);
-//                MOVIE SYNOPSIS END             //    
-
-//                MOVIE POSTER START             //
-
-    var moviePosterDiv = document.createElement('div');
-    var moviePoster = document.createElement('img')
-    moviePosterDiv.classList = "moviePosterImg movie-img";
-    moviePoster.classList= "img-size";
-    moviePoster.src = poster;
-    moviePosterDiv.appendChild(moviePoster);
-    movieTitleDiv.appendChild(moviePosterDiv);
-//                MOVIE POSTER END              //
-
-//                MOVIE TRAILER START            //
-    var movieTrailerDiv = document.createElement('div');
-    movieTrailerDiv.classList="trailer"
-    var movieTrailerEl = document.createElement('a')
-    movieTrailerEl.href = movieTrailer;
-    movieTrailerEl.target = "_blank";
-    movieTrailerEl.classList = "trailerText "
-    movieTrailerEl.textContent ="Click Here for " + movieName + "Trailer"
-    movieTrailerDiv.appendChild(movieTrailerEl);
-    movieTitleDiv.appendChild(movieTrailerDiv);
-
-    // add a  play button on the image
-    var playButton = document.createElement("i")
-    playButton.classList = "fas fa-play";
-    movieTrailerEl.appendChild(playButton);
-//                MOVIE TRAILER END             //
 
    
 }
