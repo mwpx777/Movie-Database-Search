@@ -225,13 +225,13 @@ function displayMovieContent(results) {
     movieTrailerEl.href = movieTrailer;
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText "
-    movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer"
+    movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer  "
     movieTrailerDiv.appendChild(movieTrailerEl);
     movieInfoContainer.appendChild(movieTrailerDiv);
 
     // add a  play button on the image
     var playButton = document.createElement("i")
-    playButton.classList = "fas fa-play";
+    playButton.classList = " playButton fas fa-play";
     movieTrailerEl.appendChild(playButton);
     //                MOVIE TRAILER END             //
 
