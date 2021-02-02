@@ -207,7 +207,8 @@ function displayMovieContent(results) {
     var moviePoster = document.createElement('img')
     moviePosterDiv.classList = "moviePosterImg movie-img";
     moviePoster.classList = "img-size";
-    moviePoster.src = poster;
+    moviePoster.src = poster ;
+    moviePoster.setAttribute("alt", movieName);
     moviePosterDiv.appendChild(moviePoster);
     movieTitleDiv.appendChild(moviePosterDiv);
     //                MOVIE POSTER END              //
@@ -291,7 +292,7 @@ function displayMovieContent(results) {
             // create new span
             var sourceName= document.createElement("span");
             // create class list
-            sourceName.classList =  "movieDetails movie-stream"
+            sourceName.classList =   "movie-stream"
             // give textContent the sitename variable
             sourceName.textContent =  siteName ;
             // append siteNameEl to movieContainer
@@ -299,7 +300,7 @@ function displayMovieContent(results) {
 
            
             var sourceButton= document.createElement("a");
-            sourceButton.classList =  "movieDetails movie-button"
+            sourceButton.classList =  "button"
             sourceButton.href = siteUrl
             sourceButton.target = "_blank";
             sourceButton.textContent =  "CLICK TO STREAM"
