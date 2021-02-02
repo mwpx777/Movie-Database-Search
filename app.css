@@ -340,6 +340,7 @@ body{
     padding: 5px;
     background: white;
     width: 40vh;
+    max-width:500px;
 } 
 /* MODAL START */
 .modal{
@@ -450,8 +451,9 @@ body{
 }
 
 .button{
+    color: #3a4750;
+    border: 3px solid #3a4750;
     border-radius: 20px;
-    border:5px solid black;
     background-color:#f6c90e;
     text-decoration: none;
     font-family: var(--button);
@@ -475,6 +477,8 @@ body{
 
  .movie-stream{
      justify-content:space-between;
+     font-size:1.3rem;
+
  }
 
 .movie-rating-info{
@@ -482,5 +486,5 @@ body{
 }
 
 #movieSearchForm{
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
