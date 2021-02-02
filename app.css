@@ -58,7 +58,7 @@ body{
 /* START  HEADER & FOOTER  */
 .header{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     background: var(--titles);
     font-family: var(--page-title);
@@ -126,6 +126,7 @@ body{
     color:white;
     background-color:blue;
     border-radius: 0px 10px 10px 0px;
+    font-size:1rem;
 }
 .deletebtn{
     margin-top: 10px;
@@ -478,4 +479,8 @@ body{
 
 .movie-rating-info{
     font-size: 2rem;
+}
+
+#movieSearchForm{
+    font-size: 1.3rem;
 }
