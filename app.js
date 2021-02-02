@@ -11,7 +11,10 @@ let dataCloseButton = document.querySelector('[data-close-button]')
 let modal = document.querySelector("#modal")
 let overlay = document.querySelector("#overlay")
 
+
+
 var searchArray = [];
+
 
 function formSubmitHandler(event) {
     // console.log('button clicked')
@@ -136,17 +139,17 @@ function displayMovieContent(results) {
     //                MOVIE TITLE START             //
     // creates the div to hold everything
     var movieTitleDiv = document.createElement('div');
-    movieTitleDiv.classList = "movie-card";
+    movieTitleDiv.classList = "movie-title";
     movieInfoContainer.appendChild(movieTitleDiv);
     // creates the movie title tag
-    var movieTitle = document.createElement('span');
-    movieTitle.classList = "movieDetails movie-title";
-    movieTitleDiv.appendChild(movieTitle);
+    // var movieTitle = document.createElement('span');
+    // movieTitle.classList = "movieDetails movie-title";
+    // movieTitleDiv.appendChild(movieTitle);
     //  connect  title info to title tag name
     var movieTitleInfo = document.createElement('span');
     movieTitleInfo.classList = "movie-title-info";
     movieTitleInfo.textContent = movieName;
-    movieTitle.appendChild(movieTitleInfo);
+    movieTitleDiv.appendChild(movieTitleInfo);
     //                MOVIE TITLE END               //
 
     //                MOVIE DATE START             //
@@ -163,7 +166,7 @@ function displayMovieContent(results) {
     movieDateInfo.classList = "movie-date-info"
     movieDateInfo.textContent = releaseDate;
     movieDateDiv.appendChild(movieDateInfo)
-    movieTitleDiv.appendChild(movieDateDiv);
+    movieInfoContainer.appendChild(movieDateDiv);
     //                MOVIE DATE END             //
 
     //                MOVIE RUNTIME START           //    
@@ -180,7 +183,7 @@ function displayMovieContent(results) {
     movieRunTimeInfo.classList = "movie-runtime-info";
     movieRunTimeInfo.textContent = movieLength;
     movieRunTimeDiv.appendChild(movieRunTimeInfo);
-    movieTitleDiv.appendChild(movieRunTimeDiv);
+    movieInfoContainer.appendChild(movieRunTimeDiv);
     //                MOVIE RUNTIME END             //
 
 
@@ -193,7 +196,7 @@ function displayMovieContent(results) {
     movieSynopsis.classList = "movie-overview-tag"
     movieSynopsis.textContent = "Movie Overview:  "
     movieSynopsisDiv.appendChild(movieSynopsis);
-    movieTitleDiv.appendChild(movieSynopsisDiv);
+    movieInfoContainer.appendChild(movieSynopsisDiv);
     // connect movie synopsis info  to TAG
     var movieSynopsisInfo = document.createElement('span')
     movieSynopsisInfo.classList = "movie-overview-info"
@@ -210,19 +213,21 @@ function displayMovieContent(results) {
     moviePoster.src = poster ;
     moviePoster.setAttribute("alt", movieName);
     moviePosterDiv.appendChild(moviePoster);
-    movieTitleDiv.appendChild(moviePosterDiv);
+    movieInfoContainer.appendChild(moviePosterDiv);
     //                MOVIE POSTER END              //
 
     //                MOVIE TRAILER START            //
     var movieTrailerDiv = document.createElement('div');
     movieTrailerDiv.classList = "trailer"
     var movieTrailerEl = document.createElement('a')
+    var movieTrailerText = document.createElement('span')
+    movieTrailerText.
     movieTrailerEl.href = movieTrailer;
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText "
     movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer"
     movieTrailerDiv.appendChild(movieTrailerEl);
-    movieTitleDiv.appendChild(movieTrailerDiv);
+    movieInfoContainer.appendChild(movieTrailerDiv);
 
     // add a  play button on the image
     var playButton = document.createElement("i")
@@ -250,11 +255,11 @@ function displayMovieContent(results) {
     }
 
     movieRatingDiv.appendChild(movieRating);
-    movieTitleDiv.appendChild(movieRatingDiv);
+    movieInfoContainer.appendChild(movieRatingDiv);
 }
     //                  MOVIE RATING END           //
 
-    //                  GET STREAMING DATA START          //
+    // //                  GET STREAMING DATA START          //
     
     function getStreamingData(result) {
         console.log(result)
@@ -274,11 +279,13 @@ function displayMovieContent(results) {
             .then(response => {
                 console.log(response);
                 displayStreamContent(response.collection);
-            })
+            }).catch(err => {
+                // console.error(err);
+            });
     }
     //                  GET STREAMING DATA END         //
 
-    //                  DISPLAY STREAM CONTENT START        //
+//     //                  DISPLAY STREAM CONTENT START        //
     function displayStreamContent(collection){
         for(var i = 0; i < 5; i++){
             
@@ -288,7 +295,10 @@ function displayMovieContent(results) {
              console.log(siteUrl)
             // let streamUrl = collection.
 
-                       
+            var sourceDiv = document.createElement("div")          
+            sourceDiv.classList = "source"
+            movieInfoContainer.appendChild(sourceDiv)
+            
             // create new span
             var sourceName= document.createElement("span");
             // create class list
@@ -296,7 +306,7 @@ function displayMovieContent(results) {
             // give textContent the sitename variable
             sourceName.textContent =  siteName ;
             // append siteNameEl to movieContainer
-            movieInfoContainer.appendChild(sourceName);
+            sourceDiv.appendChild(sourceName);
 
            
             var sourceButton= document.createElement("a");
@@ -304,14 +314,14 @@ function displayMovieContent(results) {
             sourceButton.href = siteUrl
             sourceButton.target = "_blank";
             sourceButton.textContent =  "CLICK TO STREAM"
-            movieInfoContainer.appendChild(sourceButton);
+            sourceDiv.appendChild(sourceButton);
       
 } 
 }
    
     //                  DISPLAY STREAMING DATA END        //
 
-
+    
     function loadSearchData() {
         //if no saved data in localStorage, create new searchArray
         if (localStorage.getItem("Saved Search") === null) {
