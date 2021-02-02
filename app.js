@@ -238,11 +238,11 @@ movieTrailerEl.appendChild(playButton);
   movieRating.classList = "movie-rating-info"
   if(rating>=7){
     movieRating.innerHTML = "Rating: " + rating + " 🔥🔥🔥"}
-  if(rating =5){
+  else if(rating <= 6.9 || rating >= 3.1){
     movieRating.innerHTML = "Rating: " + rating + " 😐"}
-  if(rating<=4){
+  else if(rating<=3){
     movieRating.innerHTML = "Rating: " + rating + " 🥔"}
-  if(rating === null){
+   else if(rating === null){
     movieRating.textContent = "";
 }
   
