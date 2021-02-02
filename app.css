@@ -451,6 +451,7 @@ body{
     font-family: var(--button);
     padding: 0  0.5rem;
     margin: 0 0.5rem;
+    
 }
 
 .movie-stream{
@@ -458,3 +459,13 @@ body{
 
 }
 
+ .source{
+     display: flex;
+     flex-direction: column;
+     justify-content:space-between;
+ }
+
+
+ .movie-stream{
+     justify-content:space-between;
+ }
