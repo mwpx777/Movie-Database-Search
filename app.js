@@ -225,13 +225,13 @@ function displayMovieContent(results) {
     movieTrailerEl.href = movieTrailer;
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText "
-    movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer"
+    movieTrailerEl.textContent = "Click Here for " + movieName + "Trailer  "
     movieTrailerDiv.appendChild(movieTrailerEl);
     movieInfoContainer.appendChild(movieTrailerDiv);
 
     // add a  play button on the image
     var playButton = document.createElement("i")
-    playButton.classList = "fas fa-play";
+    playButton.classList = " playButton fas fa-play";
     movieTrailerEl.appendChild(playButton);
     //                MOVIE TRAILER END             //
 
@@ -287,6 +287,11 @@ function displayMovieContent(results) {
 
 //     //                  DISPLAY STREAM CONTENT START        //
     function displayStreamContent(collection){
+
+        var sourceDiv = document.createElement("div")          
+            sourceDiv.classList = "source"
+            movieInfoContainer.appendChild(sourceDiv)
+
         for(var i = 0; i < 5; i++){
             
             let siteName = collection.locations[i].display_name
@@ -295,12 +300,10 @@ function displayMovieContent(results) {
              console.log(siteUrl)
             // let streamUrl = collection.
 
-            var sourceDiv = document.createElement("div")          
-            sourceDiv.classList = "source"
-            movieInfoContainer.appendChild(sourceDiv)
+            
             
             // create new span
-            var sourceName= document.createElement("span");
+            var sourceName= document.createElement("div");
             // create class list
             sourceName.classList =   "movie-stream"
             // give textContent the sitename variable
@@ -314,8 +317,9 @@ function displayMovieContent(results) {
             sourceButton.href = siteUrl
             sourceButton.target = "_blank";
             sourceButton.textContent =  "CLICK TO STREAM"
-            sourceDiv.appendChild(sourceButton);
-            movieInfoContainer.appendChild(sourceDiv);
+            sourceName.appendChild(sourceButton);
+           
+            // movieInfoContainer.appendChild(sourceDiv);
       
 } 
 }
