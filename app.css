@@ -42,10 +42,9 @@
   }
 body{
     background-color: #bbc1ff;
-    background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);
-
-
-
+    background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);    
+    height: 1300px;
+    
 }
 .wrapper {
     max-width: 1260px;
@@ -271,7 +270,44 @@ body{
     justify-content: space-around;
 
 }
+.button{
+    color: #3a4750;
+    border: 3px solid #3a4750;
+    border-radius: 20px;
+    background-color:#f6c90e;
+    text-decoration: none;
+    font-family: var(--button);
+    padding: 0  0.5rem;
+    margin: 0 0.5rem;
+    
+}
 
+.movie-stream{
+    font-family: var(--movie-title);
+
+}
+
+ .source{
+     display: flex;
+     flex-direction: column;
+     justify-content:space-between;
+     margin-bottom: 3rem;
+ }
+
+
+ .movie-stream{
+     justify-content:space-between;
+     font-size:100%;
+
+ }
+
+.movie-rating-info{
+    font-size: 2rem;
+}
+
+#movieSearchForm{
+    font-size: 1rem;
+}
 
 /* ???????????????? */
 /* trailer css START */
@@ -306,7 +342,7 @@ body{
     
 }
 .trailerText {
-    font-size: 1rem;
+    font-size: 75%;
     padding-top:2%;
     
 }
@@ -450,41 +486,3 @@ body{
     100% {background-color: #3a4570 }
 }
 
-.button{
-    color: #3a4750;
-    border: 3px solid #3a4750;
-    border-radius: 20px;
-    background-color:#f6c90e;
-    text-decoration: none;
-    font-family: var(--button);
-    padding: 0  0.5rem;
-    margin: 0 0.5rem;
-    
-}
-
-.movie-stream{
-    font-family: var(--movie-title);
-
-}
-
- .source{
-     display: flex;
-     flex-direction: column;
-     justify-content:space-between;
-     margin-bottom: 3rem;
- }
-
-
- .movie-stream{
-     justify-content:space-between;
-     font-size:1.3rem;
-
- }
-
-.movie-rating-info{
-    font-size: 2rem;
-}
-
-#movieSearchForm{
-    font-size: 1rem;
-}
