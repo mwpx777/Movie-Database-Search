@@ -221,7 +221,7 @@ function displayMovieContent(results) {
     movieTrailerDiv.classList = "trailer"
     var movieTrailerEl = document.createElement('a')
     var movieTrailerText = document.createElement('span')
-    movieTrailerText.classList = "trailer-api"
+    movieTrailerText.c
     movieTrailerEl.href = movieTrailer;
     movieTrailerEl.target = "_blank";
     movieTrailerEl.classList = "trailerText "
