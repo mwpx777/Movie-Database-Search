@@ -26,7 +26,7 @@ This is the first group project assignment.  In this project, we are tasked to c
 
 ## Website Link
 
-("https://mwpx777.github.io/Password-Generator-121920/")
+<img src="https://mwpx777.github.io/Password-Generator-121920">
 
 ## Help
 
