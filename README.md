@@ -1,5 +1,4 @@
 # Movie Database Search
-# Movie Database Search
 
 ## Deployed Link
 [Movie Database Search](https://PLACEHOLDER_URL)
