@@ -3,30 +3,488 @@
     padding:0;
     font-family: 'Ubuntu', sans-serif;
 }
+:root {
+    --page-title:"Poppins",sans-serif ;
+    --titles: #f6c90E;
+    --sidebar:#3a4750 ;
+    --background: lightblue;
+    --fontcolor: black;
+    --history-title:"Poppins",sans-serif ;
+    --history-list:"Poppins",sans-serif ;
+    /* TAGS START */
+    --movie-title:"Poppins",sans-serif ;
+    --movie-date:"Poppins",sans-serif ;
+    --movie-time:"Poppins",sans-serif ;
+    --movie-overview: "Poppins",sans-serif ;
+    --button: "Poppins",sans-serif ;
 
-.header{
-    font-size:5rem;
-    font-weight: bold;
-    display:flex;
-    justify-content: center;
+    /* TAGS END */
+    /* Border Colors */
+    
+    
+    /* background-color: #FEE140;
+    background-image: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%); */
+
+
+    --border-color: #f6c90E;
+    /* INFO PULLED FROM API's START */
+    --api-title:'Cinzel', serif;
+    --api-date: 'Changa One', cursive;
+    --api-runtime:'Changa One', cursive;
+    --api-overview:'Dosis', sans-serif;
+    
+
+    /* INFO PULLED FROM API's END */
 }
+/* START BASE  */
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+body{
+    background-color: #bbc1ff;
+    background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);
 
-.searchForm{
-    display:flex;
+
+
+}
+.wrapper {
+    max-width: 1260px;
+    margin: 0 20px;
+    display: grid;
+    grid-gap: 10px;
+  
+}
+/* END BASE  */
+/* START  HEADER & FOOTER  */
+.header{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: var(--titles);
+    font-family: var(--page-title);
+}
+.header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+    border: 2px solid black;
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+    padding: 17px;
+    
+}
+.footer{
+    background:var(--titles);   
+    text-align: center;
+    font-family: var(--page-title);
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+
+}
+/* END  HEADER &  FOOTER  */
+/* START SIDEBAR  */
+.sidebar  {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width:200px;
+    background: var(--sidebar);
+    color: var(--titles);
+    font-family: var(--history-title);
+    box-shadow: 2px 2px rgba(255, 255, 0, 0.664);
+    padding: 10px;
+  }
+.savedSearch {
+    display: flex;
     justify-content: center;
-    font-size:2rem;
-    margin:1rem 0;
-    padding:1rem;
+    flex-direction: column;
+    align-items: center;
+    background: var(--titles);
+    border-radius: 15px;
+    padding: 5px 10px ;
+    font-family: var(--history-list);
+    width: 100%;
+    font-size: 1.2rem;
+}
+.searchHistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    padding: 0px;
+}
+.searchForm{
+    font-size:1rem;
+    margin:0;
+    padding:0;
 }
 
 #searchButton{
-    padding:1rem;
+    padding:.5 rem;
     color:white;
     background-color:blue;
+    border-radius: 0px 10px 10px 0px;
+    font-size:1rem;
+}
+.deletebtn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.delete {
+    display: flex;
+    justify-content: end;
+    justify-content: space-between;   
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+/* END SIDE BAR  */
+/* START MOVIE INFO  */
+/*                  */
+.movie-container {   
+    height: 82vh; 
+    display: grid;
+    grid-template-columns: 50%  50%;
+    grid-template-rows: 5% 5% 5% 5% 5% 5% 10% 20% 20% 20%;
+}
+/* .movie-card{ 
+    
+} */
+/* START movie TITLE Tag holder and Api info */
+.movie-title {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    grid-column: 1 / span 2;
+    font-family: var(--movie-title);
+    font-size: 1.7rem;
+    margin: 10px 0;
+    
+}
+.movie-title-info{
+    border-bottom: 4px ridge;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%);
+    padding: 0 20px;
+    font-family: var(--api-title);
+    font-weight: 700 ;
+    font-size: 2rem;
+    padding: 0;
+    margin:0;
+}
+/* END movie TITLE Tag holder and Api info */
+/* Start movie DATE Tag holder and Api info */
+.movie-date {
+    margin-top: 5px;
+    text-align: left;
+    grid-row: 3;
+}
+.movie-date-tag {
+    font-family: var(--movie-date);
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.movie-date-info {
+    margin-left: 5px;
+    font-family: var(--api-date);
+    font-size: 1.8rem;
+
+}
+/* End movie DATE tag  holder and Api info */
+/* Start movie TIME Tag holder and Api info */
+.movie-runtime {
+    text-align: left;
+    grid-row: 4;
+    font-family: var(--movie-time);
+}
+.movie-runtime-tag {
+    border-bottom: 2px solid var(--border-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+}
+.movie-runtime-info{
+    
+    font-family: var(--api-runtime);
+    margin-left: 5px;
+    font-size: 1.8rem;
+}
+/* END movie TIME Tag holder and Api info */
+/* Start movie OVERVIEW Tag holder and Api info */
+.movie-overview{
+    display: flex;
+    flex-direction: column;
+    grid-row: 5 ;
+    
+}
+.movie-overview-tag {
+    display: flex;
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    width: 200px; 
+    grid-row: 6;
+    font-family: var(--movie-overview);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.movie-overview-info {
+    display: flex; 
+    grid-row: 7;
+    font-family: var(--api-overview);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+/* End movie OVERVIEW Tag holder and Api info */
+/* START movie rating */
+.movie-rating{
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+}
+.movie-rating-info{
+    font-family: var(--page-title);
+}
+/* END movie rating */
+/* ?????????? CSS for the add on. it will assign it to below the rating and above the Img */
+.source {
+
+    grid-column: 1;
+    grid-row: 10;
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-between;
+
+}
+.movie-stream{
+    display: flex;
+    justify-content: space-around;
+
 }
 
-.container{
+
+/* ???????????????? */
+/* trailer css START */
+.trailer {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 4/ span 5;
     
-    justify-items: center;
     
+}
+.trailerText{
+    display: flex;
+
+    background: white;
+   
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;      
+    text-decoration: none;
+    color: #3a4750;
+    border: 5px solid #3a4750;
+    border-radius: 20px;
+    background-color: #f6c90e;
+    /* padding: 30px; */
+    height: 50px;
+    width: 387px;
+    margin-left: 16px;
+    font-family: "Poppins",sans-serif;
+   
+    
+    
+}
+.trailerText {
+    font-size: 1rem;
+    padding-top:2%;
+    
+}
+/* .i {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: .5 rem;
+    
+} */
+.playButton {
+    font-size: 1rem;
+    padding-left:2%;
+    padding-top:1%;
+}
+/* Trailer CSS END */
+.movie-img {
+    display: flex;
+    
+    align-items: center;
+    align-self: center;
+    grid-column: 2 ;
+    grid-row-start: 8;
+    grid-row-end: 10;
+    
+}
+/* POSTER IMAGE SIZE */
+ .img-size{
+    
+    margin:1rem;
+    padding: 5px;
+    background: white;
+    width: 40vh;
+    max-width:500px;
+} 
+/* MODAL START */
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    /* scale(0) will turn modal invisible */
+    transform:translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    border: 5px solid black;
+    border-radius: 20px;
+    z-index:10;
+    background-color: white;
+    width: 600px;
+    max-width: 80%;
+
+}
+.modal.active{
+    /* scale(1) will make modal visible */
+    transform:translate(-50%, -50%) scale(1); 
+}
+
+.modal-header{
+    padding:1rem;
+    font-size:2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+   
+    
+}
+/* Modal End */
+.close-button{
+    font-size:2rem;
+    cursor: pointer;
+    outline:none;
+    font-size: bold;
+    background:none;
+    border:none;
+
+}
+/* Overlay */
+#overlay{
+    position:fixed;
+    opacity:0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, .75);
+    /* this allows buttons to be able to be clicked through the overlay */
+    pointer-events: none;
+    transition: 500ms ease-in-out;
+}
+#overlay.active{
+    pointer-events:all;
+    opacity:1;
+}
+
+
+@media screen and (min-width: 500px) {
+
+    /* no grid support? */
+    .sidebar {
+      float: left;
+      width: 200px;
+    }
+  
+    .content {
+      float: right;
+      width: 85.7872%;
+    }
+  
+    .wrapper {
+      margin: 0 auto;
+      grid-template-columns: 1fr 3fr;
+    }
+    
+    .header, .footer {
+      grid-column: 1 / -1;
+      /* needed for the floated layout */
+      clear: both;
+    }
+  
+  }
+  
+  .wrapper > * {
+    
+    border-radius: 5px;
+    
+    /* font-size: 150%; */
+    
+    margin-bottom: 10px; 
+  }
+  
+  /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+  @supports (display: grid) {
+    .wrapper > * {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+@keyframes blinking{
+    0% {background-color: #3a4570 }
+    50% {background-color: #a1a1a1}
+    100% {background-color: #3a4570 }
+}
+
+.button{
+    color: #3a4750;
+    border: 3px solid #3a4750;
+    border-radius: 20px;
+    background-color:#f6c90e;
+    text-decoration: none;
+    font-family: var(--button);
+    padding: 0  0.5rem;
+    margin: 0 0.5rem;
+    
+}
+
+.movie-stream{
+    font-family: var(--movie-title);
+
+}
+
+ .source{
+     display: flex;
+     flex-direction: column;
+     justify-content:space-between;
+     margin-bottom: 3rem;
+ }
+
+
+ .movie-stream{
+     justify-content:space-between;
+     font-size:1.3rem;
+
+ }
+
+.movie-rating-info{
+    font-size: 2rem;
+}
+
+#movieSearchForm{
+    font-size: 1rem;
 }
