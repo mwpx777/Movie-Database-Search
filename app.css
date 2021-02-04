@@ -1,8 +1,4 @@
-/* *{
-    margin:0;
-    padding:0;
-    font-family: 'Ubuntu', sans-serif;
-} */
+/*       Root Font and Color Var    */
 :root {
     --page-title:"Poppins",sans-serif ;
     --titles: #f6c90E;
@@ -17,50 +13,41 @@
     --movie-time:"Poppins",sans-serif ;
     --movie-overview: "Poppins",sans-serif ;
     --button: "Poppins",sans-serif ;
-
-    /* TAGS END */
-    /* Border Colors */
-    
-    
-    /* background-color: #FEE140;
-    background-image: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%); */
-
-
     --border-color: #f6c90E;
     /* INFO PULLED FROM API's START */
     --api-title:'Cinzel', serif;
     --api-date: 'Changa One', cursive;
     --api-runtime:'Changa One', cursive;
-    --api-overview:'Dosis', sans-serif;
-    
-
-    /* INFO PULLED FROM API's END */
+    --api-overview:'Dosis', sans-serif;  
 }
-/* START BASE  */
+/*             BASE START          */
 *, *:before, *:after {
     box-sizing: border-box;
-  }
-body{
+}
+.wrapper > * {
+    margin-bottom: 10px; 
+    border-radius: 5px;
+}
+body {
+    height: 1300px;  
     background-color: #bbc1ff;
     background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);    
-    height: 1300px;
-    
 }
 .wrapper {
-    max-width: 1260px;
-    margin: 0 20px;
     display: grid;
     grid-gap: 10px;
+    margin: 0 20px;
+    max-width: 1260px;
   
 }
-/* END BASE  */
-/* START  HEADER & FOOTER  */
-.header{
+/*          BASE END               */
+/*      HEADER & FOOTER START      */
+.header {
+    background: var(--titles);
     text-align: center;
+    font-family: var(--page-title);
     font-size: 2.5rem;
     font-weight: bold;
-    background: var(--titles);
-    font-family: var(--page-title);
 }
 .header, .footer {
     grid-column: 1 / -1;
@@ -72,38 +59,53 @@ body{
     padding: 17px;
     
 }
-.footer{
+.footer {
     background:var(--titles);   
-    text-align: center;
-    font-family: var(--page-title);
     background-color: #f0d488;
     background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+    text-align: center;
+    font-family: var(--page-title);
 
 }
-/* END  HEADER &  FOOTER  */
-/* START SIDEBAR  */
-.sidebar  {
-    text-align: center;
+/*       HEADER &  FOOTER END    */
+/*         SIDEBAR START         */
+.sidebar {
     display: flex;
     flex-direction: column;
     float: left;
+    text-align: center;
     width:200px;
+    padding: 10px;
     background: var(--sidebar);
     color: var(--titles);
     font-family: var(--history-title);
     box-shadow: 2px 2px rgba(255, 255, 0, 0.664);
-    padding: 10px;
-  }
+}
+.searchForm {
+    padding:0;
+    margin:0;
+    font-size:1rem;
+}
+#movieSearchForm {
+    font-size: 1rem;
+}
+#searchButton {
+    padding:.5 rem;
+    border-radius: 0px 10px 10px 0px;
+    font-size:1rem;
+    background-color:blue;
+    color:white;
+}
 .savedSearch {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 5px 10px ;
+    width: 100%;
     background: var(--titles);
     border-radius: 15px;
-    padding: 5px 10px ;
     font-family: var(--history-list);
-    width: 100%;
     font-size: 1.2rem;
 }
 .searchHistory {
@@ -114,24 +116,10 @@ body{
     margin: 20px 0px;
     padding: 0px;
 }
-.searchForm{
-    font-size:1rem;
-    margin:0;
-    padding:0;
-}
-
-#searchButton{
-    padding:.5 rem;
-    color:white;
-    background-color:blue;
-    border-radius: 0px 10px 10px 0px;
-    font-size:1rem;
-}
-.deletebtn{
-    margin-top: 10px;
+.deletebtn {
     display: flex;
     justify-content: space-around;
-    
+    margin-top: 10px; 
 }
 .delete {
     display: flex;
@@ -140,30 +128,25 @@ body{
     font-size: 1.2rem;
     font-weight: 400;
 }
-/* END SIDE BAR  */
-/* START MOVIE INFO  */
-/*                  */
+/*        SIDE BAR END        */
+/*       MOVIE INFO START     */
 .movie-container {   
     height: 82vh; 
     display: grid;
     grid-template-columns: 50%  50%;
     grid-template-rows: 5% 5% 5% 5% 5% 5% 10% 20% 20% 20%;
 }
-/* .movie-card{ 
-    
-} */
-/* START movie TITLE Tag holder and Api info */
+/*       Movie TITLE START   */
 .movie-title {
+    grid-column: 1 / span 2;
     justify-content: center;
     text-align: center;
     align-items: center;
-    grid-column: 1 / span 2;
-    font-family: var(--movie-title);
+    margin: 10px 0;    
     font-size: 1.7rem;
-    margin: 10px 0;
-    
+    font-family: var(--movie-title);
 }
-.movie-title-info{
+.movie-title-info {
     border-bottom: 4px ridge;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%);
@@ -171,21 +154,20 @@ body{
     font-family: var(--api-title);
     font-weight: 700 ;
     font-size: 2rem;
-    padding: 0;
     margin:0;
 }
-/* END movie TITLE Tag holder and Api info */
-/* Start movie DATE Tag holder and Api info */
+/*       Movie TITLE END     */
+/*       Movie DATE Start    */
 .movie-date {
-    margin-top: 5px;
-    text-align: left;
     grid-row: 3;
+    text-align: left;
+    margin-top: 5px;
 }
 .movie-date-tag {
-    font-family: var(--movie-date);
     border-bottom: 2px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    font-family: var(--movie-date);
     font-weight: bold;
     font-size: 1.4rem;
 }
@@ -195,42 +177,39 @@ body{
     font-size: 1.8rem;
 
 }
-/* End movie DATE tag  holder and Api info */
-/* Start movie TIME Tag holder and Api info */
+/*        Movie DATE End     */
+/*       Movie TIME Start    */
 .movie-runtime {
-    text-align: left;
     grid-row: 4;
+    text-align: left;
     font-family: var(--movie-time);
 }
 .movie-runtime-tag {
     border-bottom: 2px solid var(--border-color);
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    border-image-slice: 1;
     font-weight: bold;
     font-size: 1.4rem;
-    border-bottom: 2px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
 }
-.movie-runtime-info{
-    
-    font-family: var(--api-runtime);
+.movie-runtime-info { 
     margin-left: 5px;
+    font-family: var(--api-runtime);
     font-size: 1.8rem;
 }
-/* END movie TIME Tag holder and Api info */
-/* Start movie OVERVIEW Tag holder and Api info */
-.movie-overview{
+/*       Movie TIME Tag END    */
+/*      Movie OVERVIEW Start   */
+.movie-overview {
     display: flex;
     flex-direction: column;
-    grid-row: 5 ;
-    
+    grid-row: 5 ;  
 }
 .movie-overview-tag {
     display: flex;
+    grid-row: 6;
+    width: 200px; 
     border-bottom: 2px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
-    width: 200px; 
-    grid-row: 6;
     font-family: var(--movie-overview);
     font-weight: bold;
     font-size: 1.4rem;
@@ -242,27 +221,27 @@ body{
     font-size: 1.8rem;
     font-weight: 600;
 }
-/* End movie OVERVIEW Tag holder and Api info */
-/* START movie rating */
+/*         Movie OVERVIEW END       */
+/*         Movie RATING START       */
 .movie-rating{
-    grid-column: 2;
-    grid-row: 3;
     display: flex;
     justify-content: flex-end;
     text-align: right;
+    grid-column: 2;
+    grid-row: 3;
 }
 .movie-rating-info{
     font-family: var(--page-title);
+    font-size: 2rem;
 }
-/* END movie rating */
-/* ?????????? CSS for the add on. it will assign it to below the rating and above the Img */
+/*        Movie RATING END          */
+/*  Movie STREAMING locations START */
 .source {
-
-    grid-column: 1;
-    grid-row: 10;
     display: flex;
     justify-content: space-around;
     justify-content: space-between;
+    grid-column: 1;
+    grid-row: 10;
 
 }
 .movie-stream{
@@ -271,97 +250,64 @@ body{
 
 }
 .button{
+    padding: 0  0.5rem;
+    margin: 0 0.5rem;   
     color: #3a4750;
     border: 3px solid #3a4750;
     border-radius: 20px;
     background-color:#f6c90e;
     text-decoration: none;
     font-family: var(--button);
-    padding: 0  0.5rem;
-    margin: 0 0.5rem;
-    
 }
-
 .movie-stream{
     font-family: var(--movie-title);
-
 }
-
- .source{
+.source{
      display: flex;
      flex-direction: column;
      justify-content:space-between;
      margin-bottom: 3rem;
- }
-
-
- .movie-stream{
+}
+.movie-stream{
      justify-content:space-between;
      font-size:100%;
-
- }
-
-.movie-rating-info{
-    font-size: 2rem;
 }
-
-#movieSearchForm{
-    font-size: 1rem;
-}
-
-/* ???????????????? */
-/* trailer css START */
+/*      Movie TRAILER START    */
 .trailer {
     display: flex;
     justify-content: flex-end;
     grid-column: 2;
-    grid-row: 4/ span 5;
-    
-    
+    grid-row: 4/ span 5;   
 }
 .trailerText{
     display: flex;
-
-    background: white;
-   
     flex-direction: row;
     justify-content: center;
-    text-align: center;      
-    text-decoration: none;
+    height: 50px;
+    width: 387px;
+    background: white;
+    background-color: #f6c90e;
     color: #3a4750;
     border: 5px solid #3a4750;
     border-radius: 20px;
-    background-color: #f6c90e;
-    /* padding: 30px; */
-    height: 50px;
-    width: 387px;
     margin-left: 16px;
     font-family: "Poppins",sans-serif;
-   
-    
-    
+    text-decoration: none;
+    text-align: center;      
 }
 .trailerText {
+    padding-top:2%;   
     font-size: 75%;
-    padding-top:2%;
-    
 }
-/* .i {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: .5 rem;
-    
-} */
 .playButton {
-    font-size: 1rem;
     padding-left:2%;
     padding-top:1%;
+    font-size: 1rem;
 }
-/* Trailer CSS END */
+/*      Movie TRAILER END    */
+/*      Movie POSTER START   */
 .movie-img {
     display: flex;
-    
     align-items: center;
     align-self: center;
     grid-column: 2 ;
@@ -369,16 +315,15 @@ body{
     grid-row-end: 10;
     
 }
-/* POSTER IMAGE SIZE */
- .img-size{
-    
+.img-size{ 
     margin:1rem;
     padding: 5px;
     background: white;
     width: 40vh;
     max-width:500px;
 } 
-/* MODAL START */
+/*   Movie POSTER Size END   */
+/*       MODAL START         */
 .modal{
     position:fixed;
     top:50%;
@@ -392,33 +337,28 @@ body{
     background-color: white;
     width: 600px;
     max-width: 80%;
-
 }
 .modal.active{
     /* scale(1) will make modal visible */
     transform:translate(-50%, -50%) scale(1); 
 }
-
 .modal-header{
-    padding:1rem;
-    font-size:2rem;
     display:flex;
     justify-content: space-between;
-    align-items:center;
-   
-    
-}
-/* Modal End */
-.close-button{
+    align-items:center;   
+    padding:1rem;
     font-size:2rem;
+}
+.close-button{
+    background:none;
     cursor: pointer;
     outline:none;
-    font-size: bold;
-    background:none;
     border:none;
-
+    font-size:2rem;
+    font-size: bold;
 }
-/* Overlay */
+/*         Modal END         */
+/*       Overlay START       */
 #overlay{
     position:fixed;
     opacity:0;
@@ -435,43 +375,87 @@ body{
     pointer-events:all;
     opacity:1;
 }
+/* Overlay END */
+/*   Responsive START */
+@media screen and (max-width: 649px){
+    .header{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    height: 30px ;
+    font-size: 100%;
+    }
+   .sidebar{
+       display: flex;
+       flex-direction: row-reverse;
+       width: 90%;
+       margin-right: 10px;
+   }
+   .sidebar h2 {
+       font-size: 14px;
+       visibility:hidden;
+   }
+   .searchHistory{
+       margin: 5px;
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+   .savedSearch{
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       height: 100%;
+       text-overflow: ellipsis; 
+       overflow: hidden; 
+       height: 40px;
+       width: 100px;
+       font-size: 10px;
+   }
+   #searchButton{
+       width: 50%;
+       border-radius: 10px;
+   }
+   .deletebtn{
+       height: 30px;
+       font-size: 10px;
+   }
+   .delete{
+       font-size: 10px;
+       font-weight: 700;
+   }
+   .movie-title-info{
+       font-size: 80%;
+   }
+   .movie-rating-info{
+       font-size: 90%;
+   }
+   .img-size{
+       width: 90%;
+   }
+}
 
-
-@media screen and (min-width: 500px) {
-
-    /* no grid support? */
+/*  USED FOR SCALING BIG RESPONSIVE START */
+@media screen and (min-width: 650px) {
+ 
     .sidebar {
       float: left;
       width: 200px;
     }
-  
     .content {
       float: right;
       width: 85.7872%;
     }
-  
     .wrapper {
       margin: 0 auto;
       grid-template-columns: 1fr 3fr;
     }
-    
     .header, .footer {
       grid-column: 1 / -1;
       /* needed for the floated layout */
       clear: both;
     }
-  
   }
-  
-  .wrapper > * {
-    
-    border-radius: 5px;
-    
-    /* font-size: 150%; */
-    
-    margin-bottom: 10px; 
-  }
-  
   /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
   @supports (display: grid) {
     .wrapper > * {
@@ -479,10 +463,4 @@ body{
       margin: 0;
     }
   }
-
-@keyframes blinking{
-    0% {background-color: #3a4570 }
-    50% {background-color: #a1a1a1}
-    100% {background-color: #3a4570 }
-}
 
