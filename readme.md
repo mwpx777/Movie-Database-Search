@@ -48,7 +48,7 @@ Please direct any issues or problems to mwpx777@gmail.com
  
  Adam Ramos  
  
- [Github] https://github.com/AdamR-Work
+ [Github] (https://github.com/AdamR-Work)
 
 ## Built With
 
@@ -70,4 +70,7 @@ Please direct any issues or problems to mwpx777@gmail.com
 
 ### Work with Us
 ​
-If you have any questions or concerns contact me at adamrfiles@gmail.com
+If you have any questions or concerns contact us 
+
+adamrfiles@gmail.com
+mwpx777@gmail.com
