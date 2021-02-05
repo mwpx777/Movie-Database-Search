@@ -1,32 +1,466 @@
-*{
-    margin:0;
-    padding:0;
-    font-family: 'Ubuntu', sans-serif;
+/*       Root Font and Color Var    */
+:root {
+    --page-title:"Poppins",sans-serif ;
+    --titles: #f6c90E;
+    --sidebar:#3a4750 ;
+    --background: lightblue;
+    --fontcolor: black;
+    --history-title:"Poppins",sans-serif ;
+    --history-list:"Poppins",sans-serif ;
+    /* TAGS START */
+    --movie-title:"Poppins",sans-serif ;
+    --movie-date:"Poppins",sans-serif ;
+    --movie-time:"Poppins",sans-serif ;
+    --movie-overview: "Poppins",sans-serif ;
+    --button: "Poppins",sans-serif ;
+    --border-color: #f6c90E;
+    /* INFO PULLED FROM API's START */
+    --api-title:'Cinzel', serif;
+    --api-date: 'Changa One', cursive;
+    --api-runtime:'Changa One', cursive;
+    --api-overview:'Dosis', sans-serif;  
 }
-
-.header{
-    font-size:5rem;
+/*             BASE START          */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+.wrapper > * {
+    margin-bottom: 10px; 
+    border-radius: 5px;
+}
+body {
+    height: 1300px;  
+    background-color: #bbc1ff;
+    background-image: linear-gradient(0deg, #bbc1ff 1%, #65bde4 100%);    
+}
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    margin: 0 20px;
+    max-width: 1260px;
+  
+}
+/*          BASE END               */
+/*      HEADER & FOOTER START      */
+.header {
+    background: var(--titles);
+    text-align: center;
+    font-family: var(--page-title);
+    font-size: 2.5rem;
     font-weight: bold;
-    display:flex;
-    justify-content: center;
 }
-
-.searchForm{
-    display:flex;
-    justify-content: center;
-    font-size:2rem;
-    margin:1rem 0;
-    padding:1rem;
+.header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+    border: 2px solid black;
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+    padding: 17px;
+    
 }
+.footer {
+    background:var(--titles);   
+    background-color: #f0d488;
+    background-image: linear-gradient(90deg, #f0d488 0%, #f9c613 50%, #f0d488 100%);
+    text-align: center;
+    font-family: var(--page-title);
 
-#searchButton{
-    padding:1rem;
-    color:white;
+}
+/*       HEADER &  FOOTER END    */
+/*         SIDEBAR START         */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: center;
+    width:200px;
+    padding: 10px;
+    background: var(--sidebar);
+    color: var(--titles);
+    font-family: var(--history-title);
+    box-shadow: 2px 2px rgba(255, 255, 0, 0.664);
+}
+.searchForm {
+    padding:0;
+    margin:0;
+    font-size:1rem;
+}
+#movieSearchForm {
+    font-size: 1rem;
+}
+#searchButton {
+    padding:.5 rem;
+    border-radius: 0px 10px 10px 0px;
+    font-size:1rem;
     background-color:blue;
+    color:white;
+}
+.savedSearch {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px ;
+    width: 100%;
+    background: var(--titles);
+    border-radius: 15px;
+    font-family: var(--history-list);
+    font-size: 1.2rem;
+}
+.searchHistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    padding: 0px;
+}
+.deletebtn {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px; 
+}
+.delete {
+    display: flex;
+    justify-content: end;
+    justify-content: space-between;   
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+/*        SIDE BAR END        */
+/*       MOVIE INFO START     */
+.movie-container {   
+    height: 82vh; 
+    display: grid;
+    grid-template-columns: 50%  50%;
+    grid-template-rows: 5% 5% 5% 5% 5% 5% 10% 20% 20% 20%;
+}
+/*       Movie TITLE START   */
+.movie-title {
+    grid-column: 1 / span 2;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;    
+    font-size: 1.7rem;
+    font-family: var(--movie-title);
+}
+.movie-title-info {
+    border-bottom: 4px ridge;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #FEE140 0%, #f76b1c 40%, #f76b1c 63%, #fee140 99%);
+    padding: 0 20px;
+    font-family: var(--api-title);
+    font-weight: 700 ;
+    font-size: 2rem;
+    margin:0;
+}
+/*       Movie TITLE END     */
+/*       Movie DATE Start    */
+.movie-date {
+    grid-row: 3;
+    text-align: left;
+    margin-top: 5px;
+}
+.movie-date-tag {
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    font-family: var(--movie-date);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.movie-date-info {
+    margin-left: 5px;
+    font-family: var(--api-date);
+    font-size: 1.8rem;
+
+}
+/*        Movie DATE End     */
+/*       Movie TIME Start    */
+.movie-runtime {
+    grid-row: 4;
+    text-align: left;
+    font-family: var(--movie-time);
+}
+.movie-runtime-tag {
+    border-bottom: 2px solid var(--border-color);
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    border-image-slice: 1;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.movie-runtime-info { 
+    margin-left: 5px;
+    font-family: var(--api-runtime);
+    font-size: 1.8rem;
+}
+/*       Movie TIME Tag END    */
+/*      Movie OVERVIEW Start   */
+.movie-overview {
+    display: flex;
+    flex-direction: column;
+    grid-row: 5 ;  
+}
+.movie-overview-tag {
+    display: flex;
+    grid-row: 6;
+    width: 200px; 
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    font-family: var(--movie-overview);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.movie-overview-info {
+    display: flex; 
+    grid-row: 7;
+    font-family: var(--api-overview);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+/*         Movie OVERVIEW END       */
+/*         Movie RATING START       */
+.movie-rating{
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    grid-column: 2;
+    grid-row: 3;
+}
+.movie-rating-info{
+    font-family: var(--page-title);
+    font-size: 2rem;
+}
+/*        Movie RATING END          */
+/*  Movie STREAMING locations START */
+.source {
+    display: flex;
+    justify-content: space-around;
+    justify-content: space-between;
+    grid-column: 1;
+    grid-row: 10;
+
+}
+.movie-stream{
+    display: flex;
+    justify-content: space-around;
+
+}
+.button{
+    padding: 0  0.5rem;
+    margin: 0 0.5rem;   
+    color: #3a4750;
+    border: 3px solid #3a4750;
+    border-radius: 20px;
+    background-color:#f6c90e;
+    text-decoration: none;
+    font-family: var(--button);
+}
+.movie-stream{
+    font-family: var(--movie-title);
+}
+.source{
+     display: flex;
+     flex-direction: column;
+     justify-content:space-between;
+     margin-bottom: 3rem;
+}
+.movie-stream{
+     justify-content:space-between;
+     font-size:100%;
+}
+/*      Movie TRAILER START    */
+.trailer {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 4/ span 5;   
+}
+.trailerText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+    width: 387px;
+    background: white;
+    background-color: #f6c90e;
+    color: #3a4750;
+    border: 5px solid #3a4750;
+    border-radius: 20px;
+    margin-left: 16px;
+    font-family: "Poppins",sans-serif;
+    text-decoration: none;
+    text-align: center;      
+}
+.trailerText {
+    padding-top:2%;   
+    font-size: 75%;
+}
+.playButton {
+    padding-left:2%;
+    padding-top:1%;
+    font-size: 1rem;
+}
+/*      Movie TRAILER END    */
+/*      Movie POSTER START   */
+.movie-img {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    grid-column: 2 ;
+    grid-row-start: 8;
+    grid-row-end: 10;
+    
+}
+.img-size{ 
+    margin:1rem;
+    padding: 5px;
+    background: white;
+    width: 40vh;
+    max-width:500px;
+} 
+/*   Movie POSTER Size END   */
+/*       MODAL START         */
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    /* scale(0) will turn modal invisible */
+    transform:translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    border: 5px solid black;
+    border-radius: 20px;
+    z-index:10;
+    background-color: white;
+    width: 600px;
+    max-width: 80%;
+}
+.modal.active{
+    /* scale(1) will make modal visible */
+    transform:translate(-50%, -50%) scale(1); 
+}
+.modal-header{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;   
+    padding:1rem;
+    font-size:2rem;
+}
+.close-button{
+    background:none;
+    cursor: pointer;
+    outline:none;
+    border:none;
+    font-size:2rem;
+    font-size: bold;
+}
+/*         Modal END         */
+/*       Overlay START       */
+#overlay{
+    position:fixed;
+    opacity:0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, .75);
+    /* this allows buttons to be able to be clicked through the overlay */
+    pointer-events: none;
+    transition: 500ms ease-in-out;
+}
+#overlay.active{
+    pointer-events:all;
+    opacity:1;
+}
+/* Overlay END */
+/*   Responsive START */
+@media screen and (max-width: 649px){
+    .header{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    height: 30px ;
+    font-size: 100%;
+    }
+   .sidebar{
+       display: flex;
+       flex-direction: row-reverse;
+       width: 90%;
+       margin-right: 10px;
+   }
+   .sidebar h2 {
+       font-size: 14px;
+       visibility:hidden;
+   }
+   .searchHistory{
+       margin: 5px;
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+   .savedSearch{
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       height: 100%;
+       text-overflow: ellipsis; 
+       overflow: hidden; 
+       height: 40px;
+       width: 100px;
+       font-size: 10px;
+   }
+   #searchButton{
+       width: 50%;
+       border-radius: 10px;
+   }
+   .deletebtn{
+       height: 30px;
+       font-size: 10px;
+   }
+   .delete{
+       font-size: 10px;
+       font-weight: 700;
+   }
+   .movie-title-info{
+       font-size: 80%;
+   }
+   .movie-rating-info{
+       font-size: 90%;
+   }
+   .img-size{
+       width: 90%;
+   }
 }
 
-.container{
-    
-    justify-items: center;
-    
-}
+/*  USED FOR SCALING BIG RESPONSIVE START */
+@media screen and (min-width: 650px) {
+ 
+    .sidebar {
+      float: left;
+      width: 200px;
+    }
+    .content {
+      float: right;
+      width: 85.7872%;
+    }
+    .wrapper {
+      margin: 0 auto;
+      grid-template-columns: 1fr 3fr;
+    }
+    .header, .footer {
+      grid-column: 1 / -1;
+      /* needed for the floated layout */
+      clear: both;
+    }
+  }
+  /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+  @supports (display: grid) {
+    .wrapper > * {
+      width: auto;
+      margin: 0;
+    }
+  }
+

@@ -5,33 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;0,600;1,400&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Changa+One&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Special+Elite&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Luckiest+Guy&display=swap');</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+        </style>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+            </style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap');
+        </style>
     <title>Movie Database Search</title>
 </head>
-<body>
-    <div>
-    <h1 class="header">Movie Database Search</h1>
-    </div>
-    <br>
-    <hr>
-    <!-- search form input -->
-    <div class="searchForm">
-        <h3>Enter Movie Title</h3>
-        <input id="movieSearchForm" placeholder="Search">
-        <button id="searchButton" type="submit"><i class="fas fa-search"></i></button>
-    </div>
-    <hr>
-    <!-- saved searches container -->
-    <h4>Search History</h4>
-    <div class="searchHistory">
-       <button class="delete" id="clearSearches">Clear Searches</button>
-    </div>
-    <hr>
-    <!-- movie details container -->
-    <div id="movieInfoContainer">
+<body> 
    
+     <!-- grey overlay -->
+    <div id="overlay"></div>
+    <div class="wrapper"> 
+    <!-- header with title of website -->
+    
+    <header class="header">Movie Streaming Search</header>
+    
+    
+     <!-- SIDEBAR START -->
+     <aside class="sidebar">
+     <!-- search form input -->
+       <div class="searchForm">
+        <h2>Enter Movie Title</h2>
+        <input id="movieSearchForm" placeholder="Search">
+        <!-- search button -->
+        <button id="searchButton" type="submit"><i class="fas fa-search"></i></button>
+       </div>
+       <!-- search history -->
+     <h2>Search History</h2>
+      <div class="searchHistory">      
+    </div>
+    <div class="deletebtn">
+    <button class="delete" id="clearSearches">Clear Searches</button>
+    </aside>
+   
+    <!-- SIDEBAR END -->
+ <!-- modal popup window -->
+      <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Please enter a valid search response </div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <!-- MOVIE CONTAINER START-->
+    <div id="movieInfoContainer" class="movie-container">
+        
+        
+<!--                           -->
+<!--  MOVIE  INFO GOES HERE    -->
+<!--                           -->
+<!--                           -->
+    </div>
+    <!-- MOVIE CONTAINER END -->
+    <footer class="footer">Created by Adam Ramos & Mark Peterson</footer>
 
+</div>
+    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
         
         <script src="app.js"></script>
