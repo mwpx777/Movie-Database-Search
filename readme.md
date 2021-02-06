@@ -26,7 +26,7 @@ This is the first group project assignment.  In this project, we are tasked to c
 
 ## Website Link
 
-<a href="https://mwpx777.github.io/Password-Generator-121920">
+<a href="https://mwpx777.github.io/Movie-Database-Search/">
 
 ## Help
 
